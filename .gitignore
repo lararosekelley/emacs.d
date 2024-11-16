@@ -1,0 +1,10 @@
+# emacs temp files
+*~
+auto-save-list/
+backups/
+eln-cache/
+elpa/
+history
+.last-package-update-day
+recentf
+transient/

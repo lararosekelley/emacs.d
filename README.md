@@ -19,6 +19,12 @@ A fully-featured Emacs configuration for users more comfortable with Vim/Neovim.
 3. Run `nerd-icons-install-fonts` (only needed once)
 4. Run `treesit-auto-install-all` to install Treesitter grammars
 
+## Screenshots
+
+![peek references](./assets/lsp-peek.png)
+
+**Peek references in lsp-mode**
+
 ## To-do list
 
 - [ ] No previews on `consult-find`

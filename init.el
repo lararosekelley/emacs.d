@@ -25,6 +25,22 @@
 (use-package diredfl
   :straight t)
 
+;; Show current command in modeline
+(use-package keycast
+  :straight t
+  :hook (after-init . keycast-mode)
+  :config
+  (define-minor-mode keycast-mode
+    "Show current command and its key binding in the mode line (modified for doom-modeline use)."
+    :global t
+    (if keycast-mode
+      (progn
+	(add-hook 'pre-command-hook 'keycast--update t)
+	(add-to-list 'global-mode-string '("" keycast-mode-line)))
+      (progn
+	(remove-hook 'pre-command-hook 'keycast--update)
+	(setq global-mode-string (remove '("" keycast-mode-line) global-mode-string))))))
+
 ;; Start screen
 (use-package dashboard
   :straight t
@@ -94,6 +110,14 @@
 (use-package savehist
   :init (savehist-mode))
 
+;; Persistent undo tree
+(use-package undo-tree
+  :straight t
+  :init
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+  (global-undo-tree-mode))
+
 ;; Enable richer vertico annotations using the marginalia package.
 (use-package marginalia
   :straight t
@@ -101,6 +125,62 @@
   ;; Bind `marginalia-cycle' only in the minibuffer
   :bind (:map minibuffer-local-map
 	("M-A" . marginalia-cycle)))
+
+;; Embark
+(use-package embark
+  :straight t
+  :bind
+  ("C-." . embark-act)
+  ("C-;" . embark-dwim)
+  ("C-h B" . embark-bindings)
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+(use-package embark-consult
+  :after '(embark consult)
+  :straight t ; only need to install it, embark loads it after consult if found
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+(defun embark-which-key-indicator ()
+  "An embark indicator that displays keymaps using which-key.
+The which-key help message will show the type and value of the
+current target followed by an ellipsis if there are further
+targets."
+  (lambda (&optional keymap targets prefix)
+    (if (null keymap)
+        (which-key--hide-popup-ignore-command)
+      (which-key--show-keymap
+       (if (eq (plist-get (car targets) :type) 'embark-become)
+           "Become"
+         (format "Act on %s '%s'%s"
+                 (plist-get (car targets) :type)
+                 (embark--truncate-target (plist-get (car targets) :target))
+                 (if (cdr targets) "…" "")))
+       (if prefix
+           (pcase (lookup-key keymap prefix 'accept-default)
+             ((and (pred keymapp) km) km)
+             (_ (key-binding prefix 'accept-default)))
+         keymap)
+       nil nil t (lambda (binding)
+                   (not (string-suffix-p "-argument" (cdr binding))))))))
+
+(setq embark-indicators
+  '(embark-which-key-indicator
+    embark-highlight-indicator
+    embark-isearch-highlight-indicator))
+
+(defun embark-hide-which-key-indicator (fn &rest args)
+  "Hide the which-key indicator immediately when using the completing-read prompter."
+  (which-key--hide-popup-ignore-command)
+  (let ((embark-indicators
+         (remq #'embark-which-key-indicator embark-indicators)))
+      (apply fn args)))
+
+(advice-add #'embark-completing-read-prompter
+            :around #'embark-hide-which-key-indicator)
 
 ;; Vertico dependency -- see use below.
 (use-package crm)
@@ -142,11 +222,15 @@
   ;; be used globally (M-/).  See also the customization variable
   ;; `global-corfu-modes' to exclude certain modes.
   :straight t
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  (global-corfu-minibuffer t)
+  (corfu-popupinfo-delay 0.5)
   :init
   (global-corfu-mode)
-
-  :custom
-  (corfu-auto t))
+  (corfu-popupinfo-mode)
+  (corfu-history-mode))
 
 ;; Help navigate keybindings.
 (use-package which-key
@@ -170,10 +254,19 @@
   (tool-bar-mode -1)
   (tab-bar-mode 1)
   (global-visual-line-mode 1)
+  (global-whitespace-mode 1)
   (global-display-line-numbers-mode 1)
 
-  ;; Set font
+  ;; Tabs and whitespace
+  (setq whitespace-line-column 120)
+  (setq whitespace-style '(face tabs trailing lines-tail))
+
+  ;; Fonts
   (set-frame-font "Source Code Pro" nil t)
+
+  ;; Colors and faces
+  (setq whitespace-display-mappings '((trailing 32 [?·])))
+  (set-face-attribute 'trailing-whitespace nil :background "gray30" :foreground nil)
 
   ;; Set frame size
   (setq default-frame-alist '((width . 240) (height . 74) (top . 200) (left . 200)))
@@ -207,7 +300,8 @@
   ;; Remove extra whitespace on file save.
   (add-hook 'before-save-hook 'whitespace-cleanup)
 
-  ;; Consolidate backup file location.
+  ;; Consolidate autosave and backup file locations
+  (setq auto-save-file-name-transforms `((".*" ,"~/.emacs.d/autosaves/" t)))
   (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
   :custom
@@ -215,6 +309,7 @@
 
 ;; Evil mode
 (use-package evil
+  :after undo-tree
   :straight t
 
   :init
@@ -222,13 +317,22 @@
   (setq evil-want-keybinding nil)
   (setq evil-respect-visual-line-mode t)
   (setq evil-cross-lines t)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
 
   (evil-mode 1)
 
-  (evil-set-undo-system 'undo-redo)
+  (evil-set-undo-system 'undo-tree)
 
   ;; Initiate command with spacebar
   (evil-global-set-key 'normal (kbd "<SPC>") 'evil-ex)
+
+  ;; Leader key
+  (evil-set-leader nil ",")
+
+  ;; Indentation
+  (evil-global-set-key 'visual (kbd "<tab>") (kbd ">gv"))
+  (evil-global-set-key 'visual (kbd "<backtab>") (kbd "<gv"))
 
   ;; Window navigation
   (evil-global-set-key 'normal "J" 'evil-window-down)
@@ -238,27 +342,29 @@
   (evil-global-set-key 'normal "H" 'evil-window-left)
   (evil-global-set-key 'normal "L" 'evil-window-right)
 
-  ;; Tab navigation
-  (evil-global-set-key 'normal (kbd "C-<left>") 'tab-previous)
-  (evil-global-set-key 'normal (kbd "C-<right>") 'tab-next)
+  (evil-define-key 'normal 'global (kbd "<leader>h") 'evil-window-split)
+  (evil-define-key 'normal 'global (kbd "<leader>v") 'evil-window-vsplit)
 
-  ;; Prev/next buffers
+  ;; Tab navigation
+  (evil-global-set-key 'normal (kbd "U") 'tab-previous)
+  (evil-global-set-key 'normal (kbd "I") 'tab-next)
+
+  ;; Buffer navigation
   (evil-global-set-key 'normal (kbd "<left>") 'evil-prev-buffer)
   (evil-global-set-key 'normal (kbd "<right>") 'evil-next-buffer)
 
   ;; Folding
-  ;; TODO
+  (evil-define-key 'normal 'global (kbd "<leader>,") 'origami-toggle-node)
 
-  ;; Leader commands
-  (evil-set-leader nil ",")
+  ;; Files and projects
   (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-find)
+  (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader>e") 'treemacs)
-  (evil-define-key 'normal 'global (kbd "<leader>a") 'mark-whole-buffer)
-  (evil-define-key 'normal 'global (kbd "<leader>y") (kbd "gg\"*yG``"))
   (evil-define-key 'normal 'global (kbd "<leader>g") 'git-link)
 
-  (evil-define-key 'normal 'global (kbd "<leader>h") 'evil-window-split)
-  (evil-define-key 'normal 'global (kbd "<leader>v") 'evil-window-vsplit))
+  ;; Copy/paste
+  (evil-define-key 'normal 'global (kbd "<leader>a") 'mark-whole-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>y") (kbd "gg\"*yG``")))
 
 ;; Evil collection - vim bindings for popular modes
 (use-package evil-collection
@@ -283,7 +389,9 @@
   :straight t)
 
 ;; Load feature/mode/package-specific config scripts
+(require 'init-utils)
 (require 'init-fonts)
+(require 'init-lsp)
 (require 'init-treesitter)
 
 ;;; init.el ends here

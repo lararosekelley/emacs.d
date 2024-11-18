@@ -8,13 +8,13 @@
 
 ;; Evil + Tree-sitter
 (use-package evil-textobj-tree-sitter
-    :after evil
-    :straight t
-    :config
-    ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
-    (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
-    ;; bind `function.inner`(function block without name and args) to `f` for use in things like
-    (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner")))
+  :after evil
+  :straight t
+  :config
+  ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
+  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+  ;; bind `function.inner`(function block without name and args) to `f` for use in things like
+  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner")))
 
 ;; Automaticaly install Tree-sitter grammars
 (use-package treesit-auto
@@ -26,10 +26,10 @@
   (global-treesit-auto-mode))
 
 ;; Folding
-(use-package ts-fold
-  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
+(use-package origami
+  :straight t
   :init
-  (add-hook 'tree-sitter-after-on-hook #'ts-fold-indicators-mode))
+  (global-origami-mode))
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here

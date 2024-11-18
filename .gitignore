@@ -1,6 +1,6 @@
 # emacs temp files
-*~
 auto-save-list/
+autosaves/
 backups/
 .cache/
 eln-cache/
@@ -8,8 +8,10 @@ elpa/
 forge-database.sqlite
 history
 .last-package-update-day
+.lsp-session*
 projects
 recentf
 straight/
 transient/
 tree-sitter/
+undo/

@@ -1,11 +1,13 @@
-;;; init-fonts.el -- Set up fonts and icons
+;;; init-fonts.el --- Set up fonts and icons
 ;;;
-;;; Author: @lararosekelley
-;;; Further reading:
-;;;   - https://github.com/rainstormstudio/nerd-icons.el
-;;;   - https://github.com/rainstormstudio/nerd-icons-dired
-;;; Last modified: November 16th, 2024
+;;; Commentary:
+;;;   Author: @lararosekelley
+;;;   Further reading:
+;;;     - https://github.com/rainstormstudio/nerd-icons.el
+;;;     - https://github.com/rainstormstudio/nerd-icons-dired
+;;;   Last modified: November 18th, 2024
 ;;; ---------------------------------------------------------------
+;;; Code:
 
 ;; Pretty icons
 (use-package nerd-icons

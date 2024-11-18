@@ -1,9 +1,12 @@
-;;; init-straight.el -- Set up straight.el package manager
+;;; init-straight.el --- Set up straight.el package manager
 ;;;
-;;; Author: @lararosekelley
-;;; Further reading: https://github.com/radian-software/straight.el
-;;; Last modified: November 16th, 2024
-;;; ---------------------------------------------------------------
+;;; Commentary:
+;;;   Author: @lararosekelley
+;;;   Further reading:
+;;;     - https://github.com/radian-software/straight.el
+;;;   Last modified: November 18th, 2024
+;;; -------------------------------------------------------
+;;; Code:
 
 ;; Bootstrap `straight'
 (defvar bootstrap-version)
@@ -23,6 +26,11 @@
 
 ;; Enable `use-package' macro for `straight'
 (straight-use-package 'use-package)
+
+;; Automatically update pending packages on startup. Checks for updates weekly.
+(use-package auto-package-update
+  :straight t
+  :config (auto-package-update-maybe))
 
 (provide 'init-straight)
 ;;; init-straight.el ends here

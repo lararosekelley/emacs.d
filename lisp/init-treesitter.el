@@ -1,10 +1,13 @@
-;;; init-treesitter.el -- Set up Tree-sitter + Evil
+;;; init-treesitter.el --- Set up Tree-sitter + Evil
 ;;;
-;;; Author: @lararosekelley
-;;; Further reading:
-;;;   - https://github.com/meain/evil-textobj-tree-sitter
-;;; Last modified: November 16th, 2024
+;;; Commentary:
+;;;   Author: @lararosekelley
+;;;   Further reading:
+;;;     - https://github.com/renzmann/treesit-auto
+;;;     - https://github.com/meain/evil-textobj-tree-sitter
+;;;   Last modified: November 18th, 2024
 ;;; ---------------------------------------------------------------
+;;; Code:
 
 ;; Evil + Tree-sitter
 (use-package evil-textobj-tree-sitter
@@ -24,12 +27,6 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
-
-;; Folding
-(use-package origami
-  :straight t
-  :init
-  (global-origami-mode))
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here

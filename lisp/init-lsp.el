@@ -1,10 +1,21 @@
-;;; init-lsp.el -- Set up language servers
+;;; init-lsp.el --- Set up language servers
 ;;;
-;;; Author: @lararosekelley
-;;; Further reading:
-;;;   - https://emacs-lsp.github.io/lsp-mode/
-;;; Last modified: November 17th, 2024
-;;; ---------------------------------------------------------------
+;;; Commentary:
+;;;   Author: @lararosekelley
+;;;   Further reading:
+;;;     - https://emacs-lsp.github.io/lsp-mode/
+;;;   Last modified: November 18th, 2024
+;;; -------------------------------------------
+;;; Code:
+
+;; Flymake diagnostics
+(use-package flymake
+  :custom
+  ;; Use emacs tmp dir
+  (setq flymake-run-in-place nil)
+  ;; Run automatically for modes where lsp-mode doesn't take over
+  :hook
+  (emacs-lisp-mode . flymake-mode))
 
 ;; lsp-mode
 (use-package lsp-mode
@@ -12,9 +23,9 @@
   :init
   (setq lsp-keymap-prefix "C-l")
   (setq lsp-disabled-clients '())
-  :hook (
-	 (js-ts-mode . lsp-deferred)
-	 (lsp-mode . lsp-enable-which-key-integration))
+  :hook
+  ((js-ts-mode . lsp-deferred)
+   (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 
 ;; lsp-ui

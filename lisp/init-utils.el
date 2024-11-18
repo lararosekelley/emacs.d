@@ -1,9 +1,12 @@
-;;; init-utils.el - Custom functions and helpers
+;;; init-utils.el --- Custom functions and helpers
 ;;;
-;;; Author: @lararosekelley
-;;; Further reading: N/A
-;;; Last modified: November 17th, 2024
+;;; Commentary:
+;;;   Author: @lararosekelley
+;;;   Further reading:
+;;;     - N/A
+;;;   Last modified: November 18th, 2024
 ;;; ---------------------------------------------------------------
+;;; Code:
 
 (defun custom/reset-var (symbol)
   "Reset symbol to its standard value."

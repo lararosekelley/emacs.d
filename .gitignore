@@ -1,4 +1,3 @@
-# emacs temp files
 auto-save-list/
 autosaves/
 backups/
@@ -12,8 +11,10 @@ history
 projects
 projectile-bookmarks*
 recentf
-straight/*
-!straight/versions/default.el
+straight/build/
+straight/build-cache.el
+straight/mtimes/
+straight/repos/
 tmp/
 transient/
 tree-sitter/

@@ -21,21 +21,33 @@ A fully-featured Emacs configuration for users more comfortable with Vim/Neovim.
 
 ## Screenshots
 
+![start screen](./assets/dashboard.png)
+
+**Start screen with emacs-dashboard**
+
+![flymake](./assets/flymake.png)
+
+**Flymake at-point diagnostics**
+
+![ripgrep](./assets/ripgrep.png)
+
+**Consult + ripgrep with previews**
+
 ![peek references](./assets/lsp-peek.png)
 
 **Peek references in lsp-mode**
 
 ## To-do list
 
-- [ ] No previews on `consult-find`
-- [ ] ESLint/Prettier setup for JS/TS LSP mode
-- [ ] Shortcuts for Tramp/setup
-- [ ] DBee equivalent?
-- [ ] Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
-- [ ] Use better colors in goggles package
-- [ ] centaur-tabs still feels a bit clunky - behavior for non-code file buffers is unintuitive
-- [ ] Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
-- [ ] Treemacs + Projectile - better auto-add project behavior?
-- [ ] LSP mode - cycle through peek references
-- [ ] LSP mode - peek docs on hover (right now uses leader command)
-- [ ] Revisit all keybindings and be smarter about mode-specific ones (lots of global bindings at the moment)
+- [ ] TODO No previews on `consult-find`
+- [ ] TODO ESLint/Prettier setup for JS/TS LSP mode
+- [ ] TODO Shortcuts for Tramp/setup
+- [ ] TODO DBee equivalent?
+- [ ] TODO Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
+- [ ] TODO Use better colors in goggles package
+- [ ] TODO centaur-tabs still feels a bit clunky - behavior for non-code file buffers is unintuitive
+- [ ] TODO Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
+- [ ] TODO Treemacs + Projectile - better auto-add project behavior?
+- [ ] TODO LSP mode - cycle through peek references
+- [ ] TODO LSP mode - peek docs on hover (right now uses leader command)
+- [ ] TODO Revisit all keybindings and be smarter about mode-specific ones (lots of global bindings at the moment)

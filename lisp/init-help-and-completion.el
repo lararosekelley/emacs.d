@@ -14,8 +14,6 @@
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
-;; TODO: This is unbinding things like M-x, M-:, etc
-
 ;; Vertico dependency -- see use below.
 (use-package crm
   :straight t)
@@ -27,7 +25,9 @@
 
 ;; Provides search and navigation commands based on the Emacs completion function
 (use-package consult
-  :straight t)
+  :straight t
+  :init
+  (setq consult-project-root-function #'projectile-project-root))
 
 ;; Completion style that matches multiple regexps in any order
 (use-package orderless
@@ -71,53 +71,13 @@
 (use-package embark
   :straight t
   :bind
-  ("C-[" . embark-act)
-  ("C-;" . embark-dwim)
-  ("C-h b" . embark-bindings) ;; Replace describe-bindings
+  ("C-h B" . embark-bindings)
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
                  nil
-                 (window-parameters (mode-line-format . none))))
-
-    (defun embark-which-key-indicator ()
-    "An embark indicator that displays keymaps using which-key.
-    The which-key help message will show the type and value of the
-    current target followed by an ellipsis if there are further
-    targets."
-    (lambda (&optional keymap targets prefix)
-	(if (null keymap)
-	    (which-key--hide-popup-ignore-command)
-	(which-key--show-keymap
-	(if (eq (plist-get (car targets) :type) 'embark-become)
-	    "Become"
-	    (format "Act on %s '%s'%s"
-		    (plist-get (car targets) :type)
-		    (embark--truncate-target (plist-get (car targets) :target))
-		    (if (cdr targets) "…" "")))
-	(if prefix
-	    (pcase (lookup-key keymap prefix 'accept-default)
-		((and (pred keymapp) km) km)
-		(_ (key-binding prefix 'accept-default)))
-	    keymap)
-	nil nil t (lambda (binding)
-		    (not (string-suffix-p "-argument" (cdr binding))))))))
-
-    (setq embark-indicators
-    '(embark-which-key-indicator
-	embark-highlight-indicator
-	embark-isearch-highlight-indicator))
-
-    (defun embark-hide-which-key-indicator (fn &rest args)
-    "Hide the which-key indicator immediately when using the completing-read prompter."
-    (which-key--hide-popup-ignore-command)
-    (let ((embark-indicators
-	    (remq #'embark-which-key-indicator embark-indicators)))
-	(apply fn args)))
-
-    (advice-add #'embark-completing-read-prompter
-		:around #'embark-hide-which-key-indicator))
+                 (window-parameters (mode-line-format . none)))))
 
 ;; Embark + Consult integration
 (use-package embark-consult
@@ -125,6 +85,46 @@
   :straight t ; only need to install it, embark loads it after consult if found
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
+
+;; Additional Embark + which-key integration
+;; For some reason, this had to be defined outside of the (use-package embark ...) block
+(defun embark-which-key-indicator ()
+  "An embark indicator that displays keymaps using which-key.
+The which-key help message will show the type and value of the
+current target followed by an ellipsis if there are further
+targets."
+  (lambda (&optional keymap targets prefix)
+    (if (null keymap)
+        (which-key--hide-popup-ignore-command)
+      (which-key--show-keymap
+       (if (eq (plist-get (car targets) :type) 'embark-become)
+           "Become"
+         (format "Act on %s '%s'%s"
+                 (plist-get (car targets) :type)
+                 (embark--truncate-target (plist-get (car targets) :target))
+                 (if (cdr targets) "…" "")))
+       (if prefix
+           (pcase (lookup-key keymap prefix 'accept-default)
+             ((and (pred keymapp) km) km)
+             (_ (key-binding prefix 'accept-default)))
+         keymap)
+       nil nil t (lambda (binding)
+                   (not (string-suffix-p "-argument" (cdr binding))))))))
+
+(setq embark-indicators
+  '(embark-which-key-indicator
+    embark-highlight-indicator
+    embark-isearch-highlight-indicator))
+
+(defun embark-hide-which-key-indicator (fn &rest args)
+  "Hide the which-key indicator immediately when using the `completing-read' prompter."
+  (which-key--hide-popup-ignore-command)
+  (let ((embark-indicators
+         (remq #'embark-which-key-indicator embark-indicators)))
+      (apply fn args)))
+
+(advice-add #'embark-completing-read-prompter
+            :around #'embark-hide-which-key-indicator)
 
 (provide 'init-help-and-completion)
 ;;; init-help-and-completion.el ends here

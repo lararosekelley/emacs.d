@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Futher reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
-;;;   Last modified: November 16th, 2024
+;;;   Last modified: November 18th, 2024
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -49,8 +49,6 @@
   ;; Set frame size
   (setq default-frame-alist '((width . 240) (height . 74) (top . 200) (left . 200)))
 
-  ;; Additional useful vertico configurations.
-
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
   (defun crm-indicator (args)
@@ -93,8 +91,10 @@
 (require 'init-dashboard)
 (require 'init-org)
 (require 'init-history)
+(require 'init-paredit)
 (require 'init-help-and-completion)
 (require 'init-git)
+(require 'init-projectile)
 (require 'init-evil)
 (require 'init-lsp)
 (require 'init-dap)

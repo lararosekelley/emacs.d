@@ -11,6 +11,7 @@
 ;;; Code:
 
 ;; Evil mode
+;; All keybindings are handled here to avoid being trampled by Evil otherwise
 (use-package evil
   :after undo-tree
   :straight t
@@ -37,6 +38,14 @@
   (evil-global-set-key 'visual (kbd "<tab>") (kbd ">gv"))
   (evil-global-set-key 'visual (kbd "<backtab>") (kbd "<gv"))
 
+  ;; Comment region
+  (evil-global-set-key 'visual (kbd "<leader>c") 'comment-region)
+  (evil-global-set-key 'visual (kbd "<leader>C") 'uncomment-region)
+
+  ;; Shell / code eval
+  (evil-define-key 'normal 'global (kbd "<leader>`") 'async-shell-command)
+  (evil-define-key 'normal 'global (kbd "<leader>~") 'eval-expression)
+
   ;; Window navigation
   (evil-global-set-key 'normal "J" 'evil-window-down)
   (evil-global-set-key 'normal "K" 'evil-window-up)
@@ -58,12 +67,13 @@
   (evil-define-key 'normal 'global (kbd "<leader>,") 'origami-toggle-node)
 
   ;; Files and projects
+  (evil-define-key 'normal 'global (kbd "<leader>p") 'projectile-command-map)
   (evil-define-key 'normal 'global (kbd "<leader>fb") 'consult-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-find)
   (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader>fd") 'consult-flymake)
   (evil-define-key 'normal 'global (kbd "<leader>e") 'treemacs)
-  (evil-define-key 'normal 'global (kbd "<leader>g") 'git-link)
+  (evil-define-key 'normal 'global (kbd "<leader>yg") 'git-link)
 
   ;; Diagnostics with Flymake
   (evil-define-key 'normal 'global (kbd "C-d") 'flymake-goto-next-error)
@@ -71,7 +81,15 @@
 
   ;; Copy/paste
   (evil-define-key 'normal 'global (kbd "<leader>a") 'mark-whole-buffer)
-  (evil-define-key 'normal 'global (kbd "<leader>y") (kbd "gg\"*yG``")))
+  (evil-define-key 'normal 'global (kbd "<leader>y") (kbd "gg\"*yG``"))
+
+  ;; Magit
+  (evil-define-key 'normal 'global (kbd "<leader>g") 'magit)
+
+  ;; Embark
+  (evil-define-key 'normal 'global (kbd "C-e") 'embark-act) ;; Initiate embark
+  (evil-define-key 'normal 'global (kbd "C-i") 'embark-dwim) ;; "Do what I mean" - open links, navigate to def, etc.
+  (evil-define-key 'normal 'global (kbd "C-i") 'embark-dwim)) ;; Augment describe-bindings
 
 ;; Evil collection - vim bindings for popular modes
 (use-package evil-collection

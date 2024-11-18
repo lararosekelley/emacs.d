@@ -15,9 +15,11 @@
   (setq flymake-run-in-place nil)
   ;; Run automatically for modes where lsp-mode doesn't take over
   :hook
+  ;; Only add to this list for non-LSP-enabled modes/languages
   (emacs-lisp-mode . flymake-mode))
 
 ;; lsp-mode
+;; NOTE: Not all languages can be installed automatically
 (use-package lsp-mode
   :straight t
   :init

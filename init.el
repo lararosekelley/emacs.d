@@ -27,7 +27,6 @@
   (scroll-bar-mode -1)
   (electric-pair-mode 1)
   (tool-bar-mode -1)
-  (tab-bar-mode 1)
   (global-visual-line-mode 1)
   (global-whitespace-mode 1)
   (global-display-line-numbers-mode 1)
@@ -55,7 +54,7 @@
 
   ;; Colors and faces
   (setq whitespace-display-mappings '((trailing 32 [?·])))
-  (set-face-attribute 'trailing-whitespace nil :background "gray30" :foreground nil)
+  (set-face-attribute 'trailing-whitespace nil :background "gray30")
 
   ;; Set frame size
   (setq default-frame-alist '((width . 240) (height . 74) (top . 200) (left . 200)))
@@ -87,6 +86,10 @@
   ;; Remove extra whitespace on file save.
   (add-hook 'before-save-hook 'whitespace-cleanup)
 
+  ;; Bookmarks
+  (setq bookmark-default-file "~/.emacs.d/bookmarks")
+  (setq bookmark-save-flag 1)
+
   ;; Consolidate autosave and backup file locations
   (setq auto-save-file-name-transforms `((".*" ,"~/.emacs.d/autosaves/" t)))
   (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
@@ -105,6 +108,7 @@
 (require 'init-paredit)
 (require 'init-help-and-completion)
 (require 'init-git)
+(require 'init-centaur)
 (require 'init-projectile)
 (require 'init-evil)
 (require 'init-lsp)

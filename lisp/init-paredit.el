@@ -8,15 +8,18 @@
 ;;; -----------------------------------------------
 ;;; Code:
 
+;; Paredit in minibuffer
 (use-package paredit
   :straight t
-  :init
-  ;; Enable Paredit when evaluating Lisp code
-  (defun er-conditionally-enable-paredit-mode ()
-    "Enable `paredit-mode' in the minibuffer, during `eval-expression'."
-    (if (eq this-command 'eval-expression)
-      (paredit-mode 1)))
-  (add-hook 'minibuffer-setup-hook 'er-conditionally-enable-paredit-mode))
+  :hook
+  ((eval-expression-minibuffer-setup . enable-paredit-mode))
+  :bind
+  (:map paredit-mode-map ("<return>" . custom/paredit-RET))
+  :config
+  (defun custom/paredit-RET ()
+    "Wraps paredit-RET to allow for evaluation in minibuffer"
+    (interactive)
+    (if (minibufferp) (read--expression-try-read) (paredit-RET))))
 
 (provide 'init-paredit)
 ;;; init-paredit.el ends here

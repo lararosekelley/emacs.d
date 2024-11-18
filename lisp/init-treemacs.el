@@ -13,7 +13,11 @@
 ;; Tree view
 (use-package treemacs
   :straight t
-  :defer t)
+  :defer t
+  :config
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t))
+
 (use-package treemacs-evil
   :after '(treemacs evil)
   :straight t
@@ -21,6 +25,11 @@
   (evil-global-set-key 'treemacs "L" 'evil-window-right))
 (use-package treemacs-magit
   :after treemacs
+  :straight t)
+
+;; Project support
+(use-package treemacs-projectile
+  :after '(treemacs projectile)
   :straight t)
 
 ;; Dired using fd.

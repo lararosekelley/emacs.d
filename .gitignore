@@ -1,7 +1,9 @@
 auto-save-list/
 autosaves/
 backups/
+bookmarks
 .cache/
+.dap-breakpoints
 eln-cache/
 elpa/
 forge-database.sqlite

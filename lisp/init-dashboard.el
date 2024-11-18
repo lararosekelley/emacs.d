@@ -24,7 +24,10 @@
   (setq dashboard-center-content t)
   (setq dashboard-vertically-center-content t)
   ;; Fancy icons
+  (setq dashboard-display-icons-p t)
   (setq dashboard-icon-type 'nerd-icons)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
   :config
   (dashboard-setup-startup-hook))
 

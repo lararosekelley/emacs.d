@@ -14,10 +14,28 @@
   :after evil
   :straight t
   :config
-  ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
-  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
-  ;; bind `function.inner`(function block without name and args) to `f` for use in things like
-  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner")))
+  (define-key evil-outer-text-objects-map "f"
+	      (cons "evil-outer-function" (evil-textobj-tree-sitter-get-textobj "function.outer")))
+  (define-key evil-inner-text-objects-map "f"
+	      (cons "evil-inner-function" (evil-textobj-tree-sitter-get-textobj "function.inner")))
+  (define-key evil-outer-text-objects-map "c"
+	      (cons "evil-outer-class" (evil-textobj-tree-sitter-get-textobj "class.outer")))
+  (define-key evil-inner-text-objects-map "c"
+	      (cons "evil-inner-class" (evil-textobj-tree-sitter-get-textobj "class.inner")))
+  (define-key evil-outer-text-objects-map "n"
+	      (cons "evil-outer-comment" (evil-textobj-tree-sitter-get-textobj "comment.outer")))
+  (define-key evil-inner-text-objects-map "n"
+	      (cons "evil-outer-comment" (evil-textobj-tree-sitter-get-textobj "comment.outer")))
+  (define-key evil-outer-text-objects-map "v"
+	      (cons "evil-outer-conditional-loop"
+		    (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
+  (define-key evil-inner-text-objects-map "v"
+	      (cons "evil-inner-conditional-loop"
+		    (evil-textobj-tree-sitter-get-textobj ("conditional.inner" "loop.inner"))))
+  (define-key evil-inner-text-objects-map "a"
+	      (cons "evil-inner-parameter" (evil-textobj-tree-sitter-get-textobj "parameter.inner")))
+  (define-key evil-outer-text-objects-map "a"
+	      (cons "evil-outer-parameter" (evil-textobj-tree-sitter-get-textobj "parameter.outer"))))
 
 ;; Automaticaly install Tree-sitter grammars
 (use-package treesit-auto

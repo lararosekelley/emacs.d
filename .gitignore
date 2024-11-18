@@ -12,7 +12,7 @@ history
 projects
 projectile-bookmarks*
 recentf
-straight/
+straight/*
 !straight/versions/default.el
 tmp/
 transient/

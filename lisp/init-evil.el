@@ -8,7 +8,7 @@
 ;;;     - https://github.com/gregsexton/origami.el
 ;;;   Last modified: November 18th, 2024
 ;;; -------------------------------------------
-;;; Code:
+;; Code:
 
 ;; Evil mode
 ;; All keybindings are handled here to avoid being trampled by Evil otherwise
@@ -41,6 +41,11 @@
   ;; Comment region
   (evil-global-set-key 'visual (kbd "<leader>c") 'comment-region)
   (evil-global-set-key 'visual (kbd "<leader>C") 'uncomment-region)
+
+  ;; Copilot
+  (evil-define-key 'insert 'global (kbd "S-<return>") 'copilot-accept-completion)
+  (evil-define-key 'insert 'global (kbd "S-<down>") 'copilot-next-completion)
+  (evil-define-key 'insert 'global (kbd "S-<up>") 'copilot-previous-completion)
 
   ;; Shell / code eval
   (evil-define-key 'normal 'global (kbd "<leader>`") 'async-shell-command)

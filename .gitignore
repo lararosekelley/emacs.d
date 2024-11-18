@@ -13,6 +13,8 @@ projects
 projectile-bookmarks*
 recentf
 straight/
+!straight/versions/default.el
+tmp/
 transient/
 tree-sitter/
 undo/

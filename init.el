@@ -36,6 +36,17 @@
   (setq whitespace-line-column 120)
   (setq whitespace-style '(face tabs trailing lines-tail))
 
+  ;; Warnings and messages - show at bottom rather than side
+  (add-to-list 'display-buffer-alist
+    '("\\*messages\\*"
+    (display-buffer-at-bottom)
+    (window-height . 0.1)))
+
+  (add-to-list 'display-buffer-alist
+    '("\\*warnings\\*"
+    (display-buffer-at-bottom)
+    (window-height . 0.1)))
+
   ;; Disable lockfiles
   (setq create-lockfiles nil)
 
@@ -101,5 +112,6 @@
 (require 'init-modeline)
 (require 'init-treemacs)
 (require 'init-treesitter)
+(require 'init-copilot)
 
 ;;; init.el ends here

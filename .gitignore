@@ -13,6 +13,7 @@ projectile-bookmarks*
 recentf
 straight/build/
 straight/build-cache.el
+straight/modified/
 straight/mtimes/
 straight/repos/
 tmp/

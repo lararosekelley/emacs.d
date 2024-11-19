@@ -37,15 +37,6 @@ A fully-featured Emacs configuration for users more comfortable with Vim/Neovim.
 
 **Peek references in lsp-mode**
 
-## To-do list
+## Copyright
 
-- [ ] TODO No previews on `consult-find`
-- [ ] TODO ESLint/Prettier setup for JS/TS LSP mode
-- [ ] TODO Shortcuts for Tramp/setup
-- [ ] TODO DBee equivalent?
-- [ ] TODO Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
-- [ ] TODO Use better colors in goggles package
-- [ ] TODO Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
-- [ ] TODO Treemacs + Projectile - better auto-add project behavior?
-- [ ] TODO LSP mode - cycle through peek references
-- [ ] TODO LSP mode - peek docs on hover (right now uses leader command)
+Copyright (c) 2024 Lara Kelley. Use with credit.

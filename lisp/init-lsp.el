@@ -30,12 +30,13 @@
 (use-package lsp-mode
   :straight t
   :init
-  (setq lsp-keymap-prefix "C-l")
+  (setq lsp-keymap-prefix "C-l") ;; Prefix
   (setq lsp-disabled-clients '())
   :hook (
    (js-ts-mode . lsp-deferred)
    (typescript-ts-mode . lsp-deferred)
    (tsx-ts-mode . lsp-deferred)
+   (python-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 
@@ -47,6 +48,8 @@
   (setq lsp-ui-doc-enable t)
   (setq lsp-ui-doc-delay 0.5)
   (setq lsp-ui-doc-position 'at-point)
+  (setq lsp-ui-doc-show-with-cursor t)
+  (setq lsp-ui-doc-show-with-mouse t)
   :commands lsp-ui-mode)
 
 ;; lsp-treemacs

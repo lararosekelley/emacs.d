@@ -1,15 +1,15 @@
-;;; init-utils.el --- Custom functions and helpers
+;;; init-utils.el --- Custom functions and helpers with no dependencies
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - N/A
-;;;   Last modified: November 18th, 2024
-;;; ---------------------------------------------------------------
+;;;   Last modified: November 19th, 2024
+;;; -------------------------------------------------------------------
 ;;; Code:
 
 (defun custom/reset-var (symbol)
-  "Reset symbol to its standard value."
+  "Reset SYMBOL to its standard value."
   (interactive "v")
   (set symbol (eval (car (get symbol 'standard-value)))))
 

@@ -45,9 +45,7 @@ A fully-featured Emacs configuration for users more comfortable with Vim/Neovim.
 - [ ] TODO DBee equivalent?
 - [ ] TODO Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
 - [ ] TODO Use better colors in goggles package
-- [ ] TODO centaur-tabs still feels a bit clunky - behavior for non-code file buffers is unintuitive
 - [ ] TODO Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 - [ ] TODO Treemacs + Projectile - better auto-add project behavior?
 - [ ] TODO LSP mode - cycle through peek references
 - [ ] TODO LSP mode - peek docs on hover (right now uses leader command)
-- [ ] TODO Revisit all keybindings and be smarter about mode-specific ones (lots of global bindings at the moment)

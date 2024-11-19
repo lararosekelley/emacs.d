@@ -13,8 +13,8 @@
   :straight t
   :commands dap-debug
   :hook (
-	 (js-mode . dap-ui-mode) (js-mode . dap-mode)
-  )
+    (js-mode . dap-ui-mode)
+    (js-mode . dap-mode))
   :config
   (require 'dap-chrome)
   (require 'dap-node)

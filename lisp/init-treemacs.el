@@ -18,11 +18,15 @@
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t))
 
+;; Treemacs evil mode
 (use-package treemacs-evil
   :after '(treemacs evil)
   :straight t
   :init
-  (evil-global-set-key 'treemacs "L" 'evil-window-right))
+  (lsp-treemacs-sync-mode 1) ;; Sync with lsp-mode
+  (evil-global-set-key 'treemacs "L" 'evil-window-right)) ;; To navigate out of Treemacs like a window
+
+;; Treemacs magit
 (use-package treemacs-magit
   :after treemacs
   :straight t)

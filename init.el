@@ -35,7 +35,9 @@
   (setq whitespace-line-column 120)
   (setq whitespace-style '(face tabs trailing lines-tail))
 
-  ;; Warnings and messages - show at bottom rather than side
+  ;; Errors, warnings and messages - show at bottom rather than side
+  (setq debug-on-error t)
+
   (add-to-list 'display-buffer-alist
     '("\\*messages\\*"
     (display-buffer-at-bottom)
@@ -117,5 +119,11 @@
 (require 'init-treemacs)
 (require 'init-treesitter)
 (require 'init-copilot)
+
+;; Language-specific packages
+(require 'init-python)
+
+;; Keybindings goes last
+(require 'init-keys)
 
 ;;; init.el ends here

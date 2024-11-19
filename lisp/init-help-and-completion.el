@@ -71,7 +71,7 @@
 (use-package embark
   :straight t
   :bind
-  ("C-h B" . embark-bindings)
+  ("C-h B" . embark-bindings) ;; Alternative for `describe-bindings'
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist

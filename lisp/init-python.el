@@ -4,7 +4,9 @@
 ;;;   Author: @lararosekelley
 ;;;   Futher reading:
 ;;;     - https://github.com/wbolster/emacs-python-black
-;;;   Last modified: November 18th, 2024
+;;;     - https://emacs-lsp.github.io/lsp-pyright
+;;;     - https://github.com/paetzke/py-isort.el
+;;;   Last modified: November 19th, 2024
 ;;; ---------------------------------------------------------
 ;;; Code:
 

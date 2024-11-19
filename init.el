@@ -4,21 +4,20 @@
 ;;;   Author: @lararosekelley
 ;;;   Futher reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
-;;;   Last modified: November 18th, 2024
+;;;   Last modified: November 19th, 2024
+;;;   Tasks:
+;;;     TODO: No previews on `consult-find`
+;;;     TODO: ESLint/Prettier setup for JS/TS LSP mode
+;;;     TODO: Shortcuts for Tramp/setup
+;;;     TODO: DBee equivalent?
+;;;     TODO: Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
+;;;     TODO: Use better colors in goggles package
+;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
+;;;     TODO: Treemacs + Projectile - better auto-add project behavior?
+;;;     TODO: LSP mode - cycle through peek references not working
+;;;     TODO: Find and replace keybindings
 ;;; ---------------------------------------------------------
 ;;; Code:
-
-;; TODOs
-;; TODO No previews on `consult-find`
-;; TODO ESLint/Prettier setup for JS/TS LSP mode
-;; TODO Shortcuts for Tramp/setup
-;; TODO DBee equivalent?
-;; TODO Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
-;; TODO Use better colors in goggles package
-;; TODO Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
-;; TODO Treemacs + Projectile - better auto-add project behavior?
-;; TODO LSP mode - cycle through peek references not working
-;; TODO Find and replace keybindings
 
 ;; Define minimum Emacs version for compatibility
 (let ((min-version "29.4"))

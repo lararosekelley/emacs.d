@@ -4,13 +4,14 @@
 ;;;   Author: @lararosekelley
 ;;;   Futher reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
-;;;   Last modified: November 19th, 2024
+;;;   Last modified: November 20th, 2024
 ;;;   Tasks:
 ;;;     TODO: Shortcuts for Tramp/setup
 ;;;     TODO: DBee equivalent?
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Treemacs + Projectile - better auto-add project behavior?
 ;;;     TODO: LSP mode - cycle through peek references not working
+;;;     TODO: Evil trampling over pgmacs bindings?
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -122,6 +123,7 @@
 (require 'init-git)
 (require 'init-centaur)
 (require 'init-projectile)
+(require 'init-docker)
 (require 'init-evil)
 (require 'init-lsp)
 (require 'init-dap)
@@ -129,6 +131,7 @@
 (require 'init-treemacs)
 (require 'init-treesitter)
 (require 'init-copilot)
+(require 'init-db)
 
 ;; Language-specific packages
 (require 'init-python)

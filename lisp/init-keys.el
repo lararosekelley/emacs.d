@@ -17,6 +17,10 @@
   ;; Initiate command with spacebar
   (evil-global-set-key 'normal (kbd "<SPC>") 'evil-ex)
 
+  ;; Map C-g (keyboard-quit) to ESC and q
+  (define-key transient-map (kbd "<escape>") 'transient-quit-one)
+  (define-key transient-map (kbd "q") 'transient-quit-one)
+
   ;; Define leader key
   (evil-set-leader nil ",")
 
@@ -128,7 +132,13 @@
   (evil-define-key 'normal 'global (kbd "<leader>dn") 'dap-next)
   (evil-define-key 'normal 'global (kbd "<leader>db") 'dap-ui-breakpoints)
   (evil-define-key 'normal 'global (kbd "<leader>de") 'dap-ui-expressions)
-  (evil-define-key 'normal 'global (kbd "<leader>dt") 'dap-breakpoint-toggle))
+  (evil-define-key 'normal 'global (kbd "<leader>dt") 'dap-breakpoint-toggle)
+
+  ;; docker (reserve <leader>D)
+  (evil-define-key 'normal 'global (kbd "<leader>D") 'docker)
+
+  ;; pgmacs/sql in general (reserve <leader>p)
+  (evil-define-key 'normal 'global (kbd "<leader>pc") 'pgmacs))
 
 (provide 'init-keys)
 ;;; init-keys.el ends here

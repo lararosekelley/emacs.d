@@ -6,16 +6,11 @@
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;   Last modified: November 19th, 2024
 ;;;   Tasks:
-;;;     TODO: No previews on `consult-find`
-;;;     TODO: ESLint/Prettier setup for JS/TS LSP mode
 ;;;     TODO: Shortcuts for Tramp/setup
 ;;;     TODO: DBee equivalent?
-;;;     TODO: Flymake at-point diagnostics - show multiple per popup / less ugly highlighting
-;;;     TODO: Use better colors in goggles package
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Treemacs + Projectile - better auto-add project behavior?
 ;;;     TODO: LSP mode - cycle through peek references not working
-;;;     TODO: Find and replace keybindings
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -42,6 +37,10 @@
   (global-whitespace-mode 1)
   (global-display-line-numbers-mode 1)
 
+  ;; Performance tuning
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
+  (setq gc-cons-threshold 200000000)
+
   ;; Tabs and whitespace
   (setq whitespace-line-column 120)
   (setq whitespace-style '(face tabs trailing lines-tail))
@@ -50,14 +49,14 @@
   (setq debug-on-error t)
 
   (add-to-list 'display-buffer-alist
-    '("\\*messages\\*"
-    (display-buffer-at-bottom)
-    (window-height . 0.1)))
+	       '("\\*messages\\*"
+		 (display-buffer-at-bottom)
+		 (window-height . 0.1)))
 
   (add-to-list 'display-buffer-alist
-    '("\\*warnings\\*"
-    (display-buffer-at-bottom)
-    (window-height . 0.1)))
+	       '("\\*warnings\\*"
+		 (display-buffer-at-bottom)
+		 (window-height . 0.1)))
 
   ;; Disable lockfiles
   (setq create-lockfiles nil)
@@ -76,22 +75,22 @@
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
   (defun crm-indicator (args)
     (cons (format "[CRM%s] %s"
-      (replace-regexp-in-string
-       "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
-       crm-separator)
-      (car args))
-    (cdr args)))
+		  (replace-regexp-in-string
+		   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+		   crm-separator)
+		  (car args))
+	  (cdr args)))
   (advice-add 'completing-read-multiple :filter-args 'crm-indicator)
 
   ;; Do not allow the cursor in the minibuffer prompt
   (setq minibuffer-prompt-properties
-  '(read-only t cursor-intangible t face minibuffer-prompt))
+	'(read-only t cursor-intangible t face minibuffer-prompt))
   (add-hook 'minibuffer-setup-hook 'cursor-intangible-mode)
 
   ;; Emacs 28: Hide commands in M-x which do not work in the current mode.
   ;; Vertico commands are hidden in normal buffers.
   (setq read-extended-command-predicate
-  'command-completion-default-include-p)
+	'command-completion-default-include-p)
 
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t)

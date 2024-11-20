@@ -20,5 +20,12 @@
   :hook
   (dired-mode . nerd-icons-dired-mode))
 
+(use-package nerd-icons-completion
+  :straight t
+  :after '(nerd-icons marginalia)
+  :config
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+
 (provide 'init-fonts)
 ;;; init-fonts.el ends here

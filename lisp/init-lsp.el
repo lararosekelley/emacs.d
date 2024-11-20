@@ -33,12 +33,25 @@
   (setq lsp-keymap-prefix "C-l") ;; Prefix
   (setq lsp-disabled-clients '())
   :hook (
-   (js-ts-mode . lsp-deferred)
-   (typescript-ts-mode . lsp-deferred)
-   (tsx-ts-mode . lsp-deferred)
-   (python-mode . lsp-deferred)
-   (lsp-mode . lsp-enable-which-key-integration))
+	 (js-ts-mode . lsp-deferred)
+	 (typescript-ts-mode . lsp-deferred)
+	 (tsx-ts-mode . lsp-deferred)
+	 (python-mode . lsp-deferred)
+	 (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
+
+;; formatting code (prettier, etc.)
+(use-package apheleia
+  :straight t
+  :diminish ""
+  :defines
+  apheleia-formatters
+  apheleia-mode-alist
+  :functions
+  apheleia-global-mode
+  :config
+  (apheleia-global-mode +1)
+  (setq apheleia-formatters-respect-indent-level nil))
 
 ;; lsp-ui
 (use-package lsp-ui

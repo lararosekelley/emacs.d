@@ -20,16 +20,23 @@
   ;; Define leader key
   (evil-set-leader nil ",")
 
+  ;; Help
+  (evil-define-key 'normal 'global (kbd "<leader>s") (kbd "C-h o RET")) ;; "o" = describe-symbol
+
+  ;; Save and quit
+  (evil-define-key 'normal 'global (kbd "<leader>w") 'evil-write)
+  (evil-define-key 'normal 'global (kbd "<leader>q") 'evil-quit)
+
   ;; Indentation
-  (evil-global-set-key 'visual (kbd "<tab>") (kbd ">gv"))
-  (evil-global-set-key 'visual (kbd "<backtab>") (kbd "<gv"))
+  (evil-define-key 'visual 'global (kbd "<tab>") (kbd ">gv"))
+  (evil-define-key 'visual 'global (kbd "<backtab>") (kbd "<gv"))
 
   ;; Comment region (reserve <leader>c)
-  (evil-global-set-key 'visual (kbd "<leader>c") 'comment-region)
-  (evil-global-set-key 'visual (kbd "<leader>C") 'uncomment-region)
+  (evil-define-key 'visual 'global (kbd "<leader>c") 'comment-region)
+  (evil-define-key 'visual 'global (kbd "<leader>C") 'uncomment-region)
 
   ;; Bookmarks (reserve <leader>b)
-  (evil-global-set-key 'normal (kbd "<leader>b") 'bookmark-set)
+  (evil-define-key 'normal 'global (kbd "<leader>b") 'bookmark-set)
 
   ;; LSP (reserve <leader>l)
   ;; Prefix C-l set in 'init-lsp.el'
@@ -49,27 +56,30 @@
   ;; Shell / code eval (reserve <leader>e)
   (evil-define-key 'normal 'global (kbd "<leader>es") 'async-shell-command)
   (evil-define-key 'normal 'global (kbd "<leader>ee") 'eval-expression)
+  (evil-define-key 'normal 'global (kbd "<leader>ex") 'eval-last-sexp)
   (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x term RET RET")) ;; double return to accept /bin/bash
 
   ;; Window navigation
-  (evil-global-set-key 'normal "J" 'evil-window-down)
-  (evil-global-set-key 'normal "K" 'evil-window-up)
-  (evil-global-set-key 'normal "H" 'evil-window-left)
-  (evil-global-set-key 'normal "L" 'evil-window-right)
+  (evil-define-key 'normal 'global "J" 'evil-window-down)
+  (evil-define-key 'normal 'global "K" 'evil-window-up)
+  (evil-define-key 'normal 'global "H" 'evil-window-left)
+  (evil-define-key 'normal 'global "L" 'evil-window-right)
   (evil-define-key 'normal 'global (kbd "<leader>h") 'evil-window-split)
   (evil-define-key 'normal 'global (kbd "<leader>v") 'evil-window-vsplit)
 
   ;; Tabs
+  (evil-define-key 'normal 'global (kbd "I") 'centaur-tabs-forward)
+  (evil-define-key 'normal 'global (kbd "U") 'centaur-tabs-backward)
+  (evil-define-key 'normal 'global (kbd "g t") 'centaur-tabs-forward)
+  (evil-define-key 'normal 'global (kbd "g T") 'centaur-tabs-backward)
   (evil-ex-define-cmd "tabe[dit]" 'evil-tab-edit)
   (evil-ex-define-cmd "tabn[ew]" 'centaur-tabs--create-new-tab)
-  (evil-global-set-key 'normal (kbd "I") 'centaur-tabs-forward)
-  (evil-global-set-key 'normal (kbd "U") 'centaur-tabs-backward)
-  (define-key evil-normal-state-map (kbd "g t") 'centaur-tabs-forward)
-  (define-key evil-normal-state-map (kbd "g T") 'centaur-tabs-backward)
 
   ;; Buffer navigation
-  (evil-global-set-key 'normal (kbd "<left>") 'centaur-tabs-backward-group)
-  (evil-global-set-key 'normal (kbd "<right>") 'centaur-tabs-forward-group)
+  (evil-define-key 'normal 'global (kbd "<left>") 'centaur-tabs-backward-group)
+  (evil-define-key 'normal 'global (kbd "<right>") 'centaur-tabs-forward-group)
+  (evil-define-key 'normal 'global (kbd "S-<left>") 'evil-prev-buffer)
+  (evil-define-key 'normal 'global (kbd "S-<right>") 'evil-next-buffer)
 
   ;; Folding (reserve <leader>,)
   (evil-define-key 'normal 'global (kbd "<leader>,") 'origami-toggle-node)
@@ -80,6 +90,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-find)
   (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader>fd") 'consult-flymake)
+  (evil-define-key 'normal 'global (kbd "<leader>ft") 'consult-theme)
 
   ;; Projectile (reserve <leader>p)
   (evil-define-key 'normal 'global (kbd "C-p") 'projectile-command-map)

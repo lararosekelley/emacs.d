@@ -15,7 +15,7 @@
   (setq doom-themes-enable-bold t) ;; if nil, bold is universally disabled
   (setq doom-themes-enable-italic t) ;; if nil, italics is universally disabled
   ;; Load theme here
-  (load-theme 'doom-gruvbox t)
+  (load-theme 'doom-shades-of-purple t)
 
   ;; Enable flashing mode-line on errors.
   (doom-themes-visual-bell-config)

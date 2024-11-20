@@ -61,9 +61,14 @@
 ;; Highlight edited lines
 (use-package evil-goggles
   :straight t
+  :init
+  (setq evil-goggles-pulse t)
+  (custom-set-faces
+   '(evil-goggles-delete-face ((t (:inherit 'shadow))))
+   '(evil-goggles-paste-face ((t (:inherit 'shadow))))
+   '(evil-goggles-yank-face ((t (:inherit 'shadow)))))
   :config
-  (evil-goggles-mode)
-  (evil-goggles-use-diff-faces))
+  (evil-goggles-mode))
 
 ;; Evil + Org mode
 (use-package evil-org

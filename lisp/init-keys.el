@@ -114,6 +114,9 @@
   ;; Magit (reserve <leader>g)
   (evil-define-key 'normal 'global (kbd "<leader>gu") 'magit) ;; "Git UI"
   (evil-define-key 'normal 'global (kbd "<leader>gy") 'git-link) ;; "Git yank"
+  (evil-define-key 'normal 'global (kbd "<leader>gb") 'magit-blame)
+  (evil-define-key 'normal 'global (kbd "<leader>gd") 'magit-diff)
+  (evil-define-key 'normal 'global (kbd "<leader>gg") 'magit-git-command)
 
   ;; Embark
   (evil-define-key 'normal 'global (kbd "C-e") 'embark-act) ;; Initiate embark

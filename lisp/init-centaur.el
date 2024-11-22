@@ -18,11 +18,6 @@
   (setq centaur-tabs-set-bar 'left) ;; colored bar to left of active tab
   (setq centaur-tabs-set-modified-marker t) ;; show if tab is modified
   (setq centaur-tabs-gray-out-icons 'buffer) ;; gray out icons from unselected buffers
-  :hook
-  (dashboard-mode . centaur-tabs-local-mode) ;; centaur-tabs-local-mode = hide tabs
-  (term-mode . centaur-tabs-local-mode)
-  (calendar-mode . centaur-tabs-local-mode)
-  (org-agenda-mode . centaur-tabs-local-mode)
   :init
   (centaur-tabs-mode t)
   :config

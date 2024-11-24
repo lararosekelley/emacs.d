@@ -141,7 +141,10 @@
   (evil-define-key 'normal 'global (kbd "<leader>D") 'docker)
 
   ;; pgmacs/sql in general (reserve <leader>p)
-  (evil-define-key 'normal 'global (kbd "<leader>pc") 'pgmacs))
+  (evil-define-key 'normal 'global (kbd "<leader>pc") 'pgmacs)
+
+  ;; printing
+  (evil-define-key 'normal 'global (kbd "C-c p") 'ps-print-buffer))
 
 (provide 'init-keys)
 ;;; init-keys.el ends here

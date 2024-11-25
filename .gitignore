@@ -22,3 +22,5 @@ tmp/
 transient/
 tree-sitter/
 undo/
+tramp
+org-roam.db

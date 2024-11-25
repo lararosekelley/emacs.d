@@ -1,11 +1,12 @@
-;;; init-org.el --- Org mode
+;;; init-org.el --- Org mode and org-roam configuration
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://orgmode.org
-;;;   Last modified: November 18th, 2024
-;;; --------------------------------------------------------
+;;;     - https://orgroam.com
+;;;   Last modified: November 24th, 2024
+;;; ---------------------------------------------------
 ;;; Code:
 
 ;; Org mode
@@ -15,6 +16,15 @@
   (org-directory "/run/media/tylucaskelley/Storage/Dropbox/Files/notes")
   (org-default-notes-file (concat org-directory "/index.org"))
   (org-agenda-files (list org-directory)))
+
+;; org-roam
+(use-package org-roam
+  :after org
+  :straight t
+  :custom
+  (org-roam-directory org-directory)
+  :init
+  (org-roam-db-autosync-mode))
 
 (provide 'init-org)
 ;;; init-org.el ends here

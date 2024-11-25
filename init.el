@@ -132,6 +132,7 @@
 (require 'init-treesitter)
 (require 'init-copilot)
 (require 'init-db)
+(require 'init-files-and-directories)
 
 ;; Language-specific packages
 (require 'init-python)

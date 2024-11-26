@@ -62,15 +62,17 @@
   ;; Disable lockfiles
   (setq create-lockfiles nil)
 
-  ;; Fonts
-  (set-frame-font "Source Code Pro" nil t)
+  ;; Use Berkeley Mono font, if installed
+  (if (member "Berkeley Mono" (font-family-list))
+      (set-face-attribute 'default nil :font "Berkeley Mono" :height 110)
+    (set-face-attribute 'default nil :font "Source Code Pro" :height 110))
 
   ;; Colors and faces
   (setq whitespace-display-mappings '((trailing 32 [?·])))
   (set-face-attribute 'trailing-whitespace nil :background "gray30")
 
   ;; Set frame size
-  (setq default-frame-alist '((width . 240) (height . 74) (top . 200) (left . 200)))
+  (setq default-frame-alist '((width . 212) (height . 68) (top . 23) (left . 25)))
 
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.

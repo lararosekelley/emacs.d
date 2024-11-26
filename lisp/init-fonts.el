@@ -5,7 +5,7 @@
 ;;;   Further reading:
 ;;;     - https://github.com/rainstormstudio/nerd-icons.el
 ;;;     - https://github.com/rainstormstudio/nerd-icons-dired
-;;;   Last modified: November 18th, 2024
+;;;   Last modified: November 25th, 2024
 ;;; ---------------------------------------------------------------
 ;;; Code:
 

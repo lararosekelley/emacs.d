@@ -12,5 +12,5 @@
 (use-package sudo-edit
   :straight (:host github :repo "nflath/sudo-edit"))
 
-;;; init-files-and-directories.el ends here
 (provide 'init-files-and-directories)
+;;; init-files-and-directories.el ends here

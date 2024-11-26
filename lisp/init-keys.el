@@ -89,10 +89,14 @@
   ;; Folding (reserve <leader>,)
   (evil-define-key 'normal 'global (kbd "<leader>,") 'origami-toggle-node)
 
-  ;; Consult (reserve <leader>f) - f for "files"
+  ;; Consult (reserve <leader>f) - f for "find"
   (evil-define-key 'normal 'global (kbd "<leader>fb") 'consult-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>fl") 'consult-line)
   (evil-define-key 'normal 'global (kbd "<leader>fp") 'projectile-switch-project)
   (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-find)
+  (evil-define-key 'normal 'global (kbd "<leader>fm") 'consult-man)
+  (evil-define-key 'normal 'global (kbd "<leader>fo") 'consult-org-agenda)
+  (evil-define-key 'normal 'global (kbd "<leader>fi") 'consult-info)
   (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader>fd") 'consult-flymake)
   (evil-define-key 'normal 'global (kbd "<leader>ft") 'consult-theme)

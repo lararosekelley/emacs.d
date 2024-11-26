@@ -4,7 +4,8 @@
 ;;;   Author: @lararosekelley
 ;;;   Futher reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
-;;;   Last modified: November 25th, 2024
+;;;     - https://www.gnu.org/software/emacs/manual
+;;;   Last modified: November 26th, 2024
 ;;;   Tasks:
 ;;;     TODO: Shortcuts for Tramp/setup
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
@@ -119,6 +120,7 @@
 (require 'init-fonts)
 (require 'init-dashboard)
 (require 'init-org)
+(require 'init-novel)
 (require 'init-history)
 (require 'init-paredit)
 (require 'init-help-and-completion)

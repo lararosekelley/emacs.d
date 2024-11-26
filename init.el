@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Futher reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
-;;;   Last modified: November 20th, 2024
+;;;   Last modified: November 25th, 2024
 ;;;   Tasks:
 ;;;     TODO: Shortcuts for Tramp/setup
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.

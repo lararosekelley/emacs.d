@@ -80,6 +80,7 @@
   (evil-ex-define-cmd "tabn[ew]" 'centaur-tabs--create-new-tab)
 
   ;; Buffer navigation
+  (evil-define-key 'normal 'global (kbd "Y") 'centaur-tabs-ace-jump)
   (evil-define-key 'normal 'global (kbd "<left>") 'centaur-tabs-backward-group)
   (evil-define-key 'normal 'global (kbd "<right>") 'centaur-tabs-forward-group)
   (evil-define-key 'normal 'global (kbd "S-<left>") 'evil-prev-buffer)

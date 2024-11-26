@@ -27,14 +27,6 @@
   (evil-mode 1)
   (evil-set-undo-system 'undo-tree)
 
-  ;; Smart quitting - first try to close buffer if split, then centaur tab, then window
-  (defun centaur-tabs-close-current-tab ()
-    "Close the current tab."
-    (interactive)
-    (let (tabset (centaur-tabs-current-tabset))
-      (let ((tab (centaur-tabs-get-tab tabset)))
-	(centaur-tabs-buffer-close-tab tab))))
-
   ;; Tab navigation (with centaur-tabs)
   (evil-define-command
     evil-tab-edit (file)

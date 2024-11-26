@@ -7,11 +7,11 @@
 ;;;   Last modified: November 20th, 2024
 ;;;   Tasks:
 ;;;     TODO: Shortcuts for Tramp/setup
-;;;     TODO: DBee equivalent?
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Treemacs + Projectile - better auto-add project behavior?
 ;;;     TODO: LSP mode - cycle through peek references not working
 ;;;     TODO: Evil trampling over pgmacs bindings?
+;;;     TODO: Opinionated org mode / roam setup
 ;;; ---------------------------------------------------------
 ;;; Code:
 

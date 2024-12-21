@@ -25,7 +25,7 @@
   (evil-set-leader nil ",")
 
   ;; Help
-  (evil-define-key 'normal 'global (kbd "<leader>s") (kbd "C-h o RET")) ;; "o" = describe-symbol
+  (evil-define-key 'normal 'global (kbd "<leader>s") (kbd "C-c C-d")) ;; helpful version of describe-symbol
 
   ;; Save and quit
   (evil-define-key 'normal 'global (kbd "<leader>w") 'evil-write)
@@ -122,6 +122,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>gb") 'magit-blame)
   (evil-define-key 'normal 'global (kbd "<leader>gd") 'magit-diff)
   (evil-define-key 'normal 'global (kbd "<leader>gg") 'magit-git-command)
+  (evil-define-key 'normal 'global (kbd "<leader>gc") 'magit-checkout)
 
   ;; Embark
   (evil-define-key 'normal 'global (kbd "C-e") 'embark-act) ;; Initiate embark

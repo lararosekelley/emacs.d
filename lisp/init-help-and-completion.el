@@ -32,7 +32,7 @@
   (defun consult-find-file-with-preview (prompt &optional dir default mustmatch initial pred)
     (interactive)
     (let ((default-directory (or dir default-directory))
-      (minibuffer-completing-file-name t))
+	  (minibuffer-completing-file-name t))
       (consult--read #'read-file-name-internal
 		     :state (consult--file-preview)
 		     :prompt prompt
@@ -51,9 +51,9 @@
   ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
   ;;       orderless-component-separator 'orderless-escapable-split-on-space)
   (setq completion-styles '(orderless)
-  orderless-matching-styles '(orderless-flex orderless-regexp)
-  completion-category-defaults nil
-  completion-category-overrides '((file (styles partial-completion)))))
+	orderless-matching-styles '(orderless-flex orderless-regexp)
+	completion-category-defaults nil
+	completion-category-overrides '((file (styles partial-completion)))))
 
 ;; COmpletion in Region FUnction
 (use-package corfu
@@ -67,6 +67,17 @@
   (global-corfu-mode)
   (corfu-popupinfo-mode)
   (corfu-history-mode))
+
+;; Helpful (nicer help UI)
+(use-package helpful
+  :straight t
+  :init
+  (global-set-key (kbd "C-h f") #'helpful-callable)
+  (global-set-key (kbd "C-h v") #'helpful-variable)
+  (global-set-key (kbd "C-h k") #'helpful-key)
+  (global-set-key (kbd "C-c C-d") #'helpful-at-point)
+  (global-set-key (kbd "C-h x") #'helpful-command)
+  (global-set-key (kbd "C-h F") #'helpful-function))
 
 ;; Help navigate keybindings
 (use-package which-key
@@ -126,16 +137,16 @@ targets."
                    (not (string-suffix-p "-argument" (cdr binding))))))))
 
 (setq embark-indicators
-  '(embark-which-key-indicator
-    embark-highlight-indicator
-    embark-isearch-highlight-indicator))
+      '(embark-which-key-indicator
+	embark-highlight-indicator
+	embark-isearch-highlight-indicator))
 
 (defun embark-hide-which-key-indicator (fn &rest args)
   "Hide the which-key indicator immediately when using the `completing-read' prompter."
   (which-key--hide-popup-ignore-command)
   (let ((embark-indicators
          (remq #'embark-which-key-indicator embark-indicators)))
-      (apply fn args)))
+    (apply fn args)))
 
 (advice-add #'embark-completing-read-prompter
             :around #'embark-hide-which-key-indicator)

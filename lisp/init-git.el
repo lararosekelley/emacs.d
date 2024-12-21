@@ -25,9 +25,6 @@
   :straight t
   :config
   (magit-todos-mode 1))
-(use-package forge
-  :after magit
-  :straight t)
 (use-package git-link
   :after magit
   :straight t)

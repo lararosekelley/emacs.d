@@ -23,6 +23,13 @@
   :straight t
   :init (vertico-mode))
 
+;; Shell command completion (Bash)
+(use-package bash-completion
+  :straight t
+  :init
+  (setq bash-completion-use-separate-processes t) ;; prevents hanging
+  (bash-completion-setup))
+
 ;; Provides search and navigation commands based on the Emacs completion function
 (use-package consult
   :straight t

@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/bbatsov/projectile
 ;;;   Last modified: November 18th, 2024
 ;;; ------------------------------------------------

@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://github.com/doomemacs/themes
-;;;   Last modified: November 18th, 2024
+;;;   Last modified: December 22nd, 2024
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 

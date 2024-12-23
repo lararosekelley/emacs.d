@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://emarsden.github.io/pgmacs/
 ;;;   Last modified: November 20th, 2024
 ;;; ---------------------------------------------------------

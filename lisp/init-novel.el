@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://depp.brause.cc/nov.el
 ;;;   Last modified: November 25th, 2024
 ;;; ------------------------------------------------

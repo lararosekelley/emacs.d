@@ -2,10 +2,10 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
-;;;   Last modified: November 26th, 2024
+;;;   Last modified: December 22nd, 2024
 ;;;   Tasks:
 ;;;     TODO: Shortcuts for Tramp/setup
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
@@ -26,6 +26,9 @@
 
 ;; Set up package manager first
 (require 'init-straight)
+
+;; Custom utilities
+(require 'init-utils)
 
 ;; Basic editor config
 (use-package emacs
@@ -50,15 +53,9 @@
   ;; Errors, warnings and messages - show at bottom rather than side
   (setq debug-on-error t)
 
-  (add-to-list 'display-buffer-alist
-	       '("\\*messages\\*"
-		 (display-buffer-at-bottom)
-		 (window-height . 0.1)))
+  (add-to-list 'display-buffer-alist '("\\*messages\\*" (display-buffer-at-bottom)))
 
-  (add-to-list 'display-buffer-alist
-	       '("\\*warnings\\*"
-		 (display-buffer-at-bottom)
-		 (window-height . 0.1)))
+  (add-to-list 'display-buffer-alist '("\\*warnings\\*" (display-buffer-at-bottom)))
 
   ;; Disable lockfiles
   (setq create-lockfiles nil)
@@ -68,12 +65,17 @@
       (set-face-attribute 'default nil :font "Berkeley Mono" :height 110)
     (set-face-attribute 'default nil :font "Source Code Pro" :height 110))
 
+  ;; Set frame size
+  (setq default-frame-alist
+	'((width . 150)
+	  (height . 40)
+	  (top . 0)
+	  (left . 0)))
+  (setq initial-frame-alist default-frame-alist)
+
   ;; Colors and faces
   (setq whitespace-display-mappings '((trailing 32 [?·])))
   (set-face-attribute 'trailing-whitespace nil :background "gray30")
-
-  ;; Set frame size
-  (setq default-frame-alist '((width . 212) (height . 68) (top . 23) (left . 25)))
 
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
@@ -107,15 +109,18 @@
   (setq bookmark-save-flag 1)
 
   ;; Consolidate autosave and backup file locations
+  ;; Create folders automatically if they do not exist
   (setq auto-save-file-name-transforms `((".*" ,"~/.emacs.d/autosaves/" t)))
-  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+  (make-directory "~/.emacs.d/autosaves" :parents)
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backups/")))
+  (make-directory "~/.emacs.d/backups" :parents)
   (setq temporary-file-directory "~/.emacs.d/tmp/")
+  (make-directory "~/.emacs.d/tmp" :parents)
 
   :custom
   (tab-always-indent 'complete))
 
 ;; Load feature/mode/package-specific config scripts
-(require 'init-utils)
 (require 'init-theme)
 (require 'init-fonts)
 (require 'init-dashboard)

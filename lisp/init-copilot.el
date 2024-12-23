@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/copilot-emacs/copilot.el
 ;;;   Last modified: November 18th, 2024
 ;;; -----------------------------------------------

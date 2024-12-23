@@ -10,10 +10,17 @@
 
 ## Setup
 
+### Before you launch Emacs
+
 1. Clone this repo into `~/.emacs.d`
-2. Launch Emacs and wait a bit for everything to install (only once)
-3. Run `nerd-icons-install-fonts` (only needed once)
-4. Run `treesit-auto-install-all` to install Treesitter grammars all at once (optional)
+2. Update env vars or add more in `lisp/init-env.el`
+
+### First launch
+
+1. Launch Emacs and wait a bit for everything to install (only once)
+2. Run `nerd-icons-install-fonts` (only needed once)
+3. Run `treesit-auto-install-all` to install Treesitter grammars all at once (optional)
+4. Run `copilot-install-server` to install Copilot
 5. As you navigate to `lsp-mode`-enabled files, you should get prompted (only once) to install
    a language server
 

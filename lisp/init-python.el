@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/wbolster/emacs-python-black
 ;;;     - https://emacs-lsp.github.io/lsp-pyright
 ;;;     - https://github.com/paetzke/py-isort.el

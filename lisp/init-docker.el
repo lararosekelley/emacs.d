@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/Silex/docker.el
 ;;;   Last modified: November 20th, 2024
 ;;; ---------------------------------------------------------

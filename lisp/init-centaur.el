@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/ema2159/centaur-tabs
 ;;;   Last modified: November 25th, 2024
 ;;; ---------------------------------------------------------

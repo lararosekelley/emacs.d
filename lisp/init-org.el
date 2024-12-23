@@ -5,7 +5,7 @@
 ;;;   Further reading:
 ;;;     - https://orgmode.org
 ;;;     - https://orgroam.com
-;;;   Last modified: November 24th, 2024
+;;;   Last modified: December 22nd, 2024
 ;;; ---------------------------------------------------
 ;;; Code:
 
@@ -13,7 +13,7 @@
 (use-package org
   :straight t
   :custom
-  (org-directory "/run/media/tylucaskelley/Storage/Dropbox/Files/notes")
+  (org-directory (getenv "EMACS_ORG_DIRECTORY"))
   (org-default-notes-file (concat org-directory "/index.org"))
   (org-agenda-files (list org-directory)))
 

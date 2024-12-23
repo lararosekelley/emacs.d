@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://paredit.org
 ;;;   Last modified: November 18th, 2024
 ;;; -----------------------------------------------

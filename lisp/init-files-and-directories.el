@@ -2,7 +2,7 @@
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
-;;;   Futher reading:
+;;;   Further reading:
 ;;;     - https://github.com/nflath/sudo-edit
 ;;;   Last modified: November 23rd, 2024
 ;;; --------------------------------------------------------------------------------

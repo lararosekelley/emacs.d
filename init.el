@@ -5,7 +5,7 @@
 ;;;   Further reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
-;;;   Last modified: December 22nd, 2024
+;;;   Last modified: December 28th, 2024
 ;;;   Tasks:
 ;;;     TODO: Shortcuts for Tramp/setup
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
@@ -13,6 +13,11 @@
 ;;;     TODO: LSP mode - cycle through peek references not working
 ;;;     TODO: Evil trampling over pgmacs bindings?
 ;;;     TODO: Opinionated org mode / roam setup
+;;;     TODO: Try to get emacs to install copilot for me (node dep) - seems to be only setup error now!
+;;;     TODO: Figure out magit/vertico CPU usage issue (BAD - but only happening in product repo on desktop?)
+;;;     TODO: LSP or Copilot (unsure) sometimes freezes when typing and crashes Emacs (BAD)
+;;;     TODO: Refresh VC state in mode line faster
+;;;     TODO: https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Names.html#:~:text=When%20you%20visit%20a%20file,see%20Creating%20and%20Selecting%20Buffers (simulate vim's current working directory behavior)
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -67,8 +72,8 @@
 
   ;; Set frame size
   (setq default-frame-alist
-	'((width . 150)
-	  (height . 40)
+	'((width . 214)
+	  (height . 67)
 	  (top . 0)
 	  (left . 0)))
   (setq initial-frame-alist default-frame-alist)

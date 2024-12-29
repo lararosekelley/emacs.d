@@ -4,10 +4,11 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://github.com/bbatsov/projectile
-;;;   Last modified: November 18th, 2024
+;;;   Last modified: December 28th, 2024
 ;;; ------------------------------------------------
 ;;; Code:
 
+;; Enable projectile
 (use-package projectile
   :straight t
   :init

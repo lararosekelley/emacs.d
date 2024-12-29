@@ -6,7 +6,9 @@
 
 ## Dependencies
 
-- Emacs 29+
+- Emacs 29.4+
+- `multimarkdown` for Markdown preview/compilation
+   - Can be installed from most system package managers
 
 ## Setup
 

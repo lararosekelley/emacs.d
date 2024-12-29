@@ -1,23 +1,22 @@
-;;; init.el --- Lara's Emacs configuration
+;;; init.el --- Lara's Vim-inspired Emacs configuration
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
+;;;     - https://github.com/emacs-evil/evil
 ;;;   Last modified: December 28th, 2024
 ;;;   Tasks:
-;;;     TODO: Shortcuts for Tramp/setup
+;;;     TODO: [BUG] LSP mode - cycle through peek references not working
+;;;     TODO: Automate copilot-install-server step
+;;;     TODO: Automate treesit-auto-install-all step
+;;;     TODO: Automate nerd-icons-install-fonts step
+;;;     TODO: Treemacs + Projectile - when opening an obvious project folder, add to projects dashboard and treemacs
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
-;;;     TODO: Treemacs + Projectile - better auto-add project behavior?
-;;;     TODO: LSP mode - cycle through peek references not working
-;;;     TODO: Evil trampling over pgmacs bindings?
 ;;;     TODO: Opinionated org mode / roam setup
-;;;     TODO: Try to get emacs to install copilot for me (node dep) - seems to be only setup error now!
-;;;     TODO: Figure out magit/vertico CPU usage issue (BAD - but only happening in product repo on desktop?)
-;;;     TODO: LSP or Copilot (unsure) sometimes freezes when typing and crashes Emacs (BAD)
 ;;;     TODO: Refresh VC state in mode line faster
-;;;     TODO: https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Names.html#:~:text=When%20you%20visit%20a%20file,see%20Creating%20and%20Selecting%20Buffers (simulate vim's current working directory behavior)
+;;;     TODO: Evil trampling over pgmacs bindings?
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -132,6 +131,7 @@
 (require 'init-org)
 (require 'init-novel)
 (require 'init-history)
+(require 'init-markdown)
 (require 'init-paredit)
 (require 'init-help-and-completion)
 (require 'init-git)
@@ -144,9 +144,9 @@
 (require 'init-modeline)
 (require 'init-treemacs)
 (require 'init-treesitter)
-(require 'init-copilot)
 (require 'init-db)
 (require 'init-files-and-directories)
+(require 'init-copilot)
 
 ;; Language-specific packages
 (require 'init-python)

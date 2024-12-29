@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://evil.readthedocs.io/en/latest/overview.html
-;;;   Last modified: November 19th, 2024
+;;;   Last modified: December 28th, 2024
 ;;; -------------------------------------------
 ;;; Code:
 
@@ -42,6 +42,12 @@
   ;; Bookmarks (reserve <leader>b)
   (evil-define-key 'normal 'global (kbd "<leader>b") 'bookmark-set)
 
+  ;; Markdown (reserve <leader>m)
+  (evil-define-key 'normal 'global (kbd "<leader>mi") 'markdown-insert-image)
+  (evil-define-key 'normal 'global (kbd "<leader>ml") 'markdown-insert-link)
+  (evil-define-key 'normal 'global (kbd "<leader>mp") 'markdown-live-preview-mode)
+  (evil-define-key 'normal 'global (kbd "<leader>mx") 'markdown-export-and-preview)
+
   ;; LSP (reserve <leader>l)
   ;; Prefix C-l set in 'init-lsp.el'
   (evil-define-key 'normal 'global (kbd "<leader>lr") (kbd "C-l G r")) ;; Peek references
@@ -52,7 +58,6 @@
   (evil-define-key 'normal 'global (kbd "<leader>lp") 'lsp-ui-peek-jump-backward) ;; Previous reference in Peek mode
 
   ;; Copilot
-  ;; TODO: Tighter integration with completion
   (evil-define-key 'insert 'global (kbd "S-<return>") 'copilot-accept-completion)
   (evil-define-key 'insert 'global (kbd "S-<down>") 'copilot-next-completion)
   (evil-define-key 'insert 'global (kbd "S-<up>") 'copilot-previous-completion)

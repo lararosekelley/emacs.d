@@ -5,10 +5,10 @@
 ;;;   Further reading:
 ;;;     - https://magit.vc/
 ;;;     - https://github.com/alphapapa/magit-todos
-;;;     - https://github.com/magit/forge
 ;;;     - https://github.com/sshaw/git-link
-;;;   Last modified: November 18th, 2024
-;;; -------------------------------------------
+;;;     - https://github.com/Artawower/blamer.el
+;;;   Last modified: January 8th, 2025
+;;; ----------------------------------------------
 ;;; Code:
 
 ;; Highlight version control changes in the lefthand gutter
@@ -28,6 +28,23 @@
 (use-package git-link
   :after magit
   :straight t)
+
+;; Git Lens-style virtual text for blame, etc.
+(use-package blamer
+  :straight (:host github :repo "artawower/blamer.el")
+  :bind (("s-i" . blamer-show-commit-info))
+  :custom
+  (blamer-idle-time 0.5)
+  (blamer-min-offset 20)
+  (blamer-author-formatter "✎ %s ")
+  (blamer-max-lines 1)
+  :custom-face
+  (blamer-face ((t :foreground "#7a88cf"
+                   :background nil
+                   :height 110
+                   :italic t)))
+  :config
+  (global-blamer-mode 1))
 
 (provide 'init-git)
 ;;; init-git.el ends here

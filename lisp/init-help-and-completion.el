@@ -10,7 +10,8 @@
 ;;;     - https://github.com/minad/corfu
 ;;;     - https://github.com/justbur/emacs-which-key
 ;;;     - https://github.com/minad/marginalia
-;;;   Last modified: November 18th, 2024
+;;;     - https://github.com/minad/affe
+;;;   Last modified: January 11th, 2025
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
@@ -54,13 +55,17 @@
 (use-package orderless
   :straight t
   :init
-  ;; Configure a custom style dispatcher (see the Consult wiki)
-  ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
-  ;;       orderless-component-separator 'orderless-escapable-split-on-space)
   (setq completion-styles '(orderless)
 	orderless-matching-styles '(orderless-flex orderless-regexp)
-	completion-category-defaults nil
-	completion-category-overrides '((file (styles partial-completion)))))
+	completion-category-overrides '((file (styles flex partial-completion)))
+	completion-category-defaults nil))
+
+;; Better consult-find (using fzf)
+(use-package affe
+  :after '(consult orderless)
+  :straight t
+  :config
+  (consult-customize affe-find :state (consult--file-preview))) ;; Automatic preview
 
 ;; COmpletion in Region FUnction
 (use-package corfu

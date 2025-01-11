@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://evil.readthedocs.io/en/latest/overview.html
-;;;   Last modified: December 28th, 2024
+;;;   Last modified: January 11th, 2025
 ;;; -------------------------------------------
 ;;; Code:
 
@@ -66,7 +66,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>es") 'async-shell-command)
   (evil-define-key 'normal 'global (kbd "<leader>ee") 'eval-expression)
   (evil-define-key 'normal 'global (kbd "<leader>ex") 'eval-last-sexp)
-  (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x term RET RET")) ;; double return to accept /bin/bash
+  (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x vterm-other-window RET"))
 
   ;; Window navigation
   (evil-define-key 'normal 'global "J" 'evil-window-down)
@@ -98,7 +98,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>fb") 'consult-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>fl") 'consult-line)
   (evil-define-key 'normal 'global (kbd "<leader>fp") 'projectile-switch-project)
-  (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-find)
+  (evil-define-key 'normal 'global (kbd "<leader>ff") 'affe-find)
   (evil-define-key 'normal 'global (kbd "<leader>fm") 'consult-man)
   (evil-define-key 'normal 'global (kbd "<leader>fo") 'consult-org-agenda)
   (evil-define-key 'normal 'global (kbd "<leader>fi") 'consult-info)

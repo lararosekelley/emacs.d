@@ -6,7 +6,7 @@
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
 ;;;     - https://github.com/emacs-evil/evil
-;;;   Last modified: December 28th, 2024
+;;;   Last modified: January 11th, 2025
 ;;;   Tasks:
 ;;;     TODO: [BUG] LSP mode - cycle through peek references not working
 ;;;     TODO: Automate copilot-install-server step
@@ -17,6 +17,11 @@
 ;;;     TODO: Opinionated org mode / roam setup
 ;;;     TODO: Refresh VC state in mode line faster
 ;;;     TODO: Evil trampling over pgmacs bindings?
+;;;     TODO: affe-find not working with consult-file-preview unless I run after load
+;;;     TODO: Emacs tab behavior too rigid?
+;;;     TODO: Ignore delimiters in fuzzy file search (orderless-flex behavior)
+;;;     TODO: Bash completion sometimes hangs
+;;;     TODO: Allow for deciding how to open file from consult (e.g., in new tab, split,h etc.)
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -53,10 +58,10 @@
   ;; Tabs and whitespace
   (setq whitespace-line-column 120)
   (setq whitespace-style '(face tabs trailing lines-tail))
+  (setq tab-always-indent 'complete)
 
   ;; Errors, warnings and messages - show at bottom rather than side
   (setq debug-on-error t)
-
   (add-to-list 'display-buffer-alist '("\\*messages\\*" (display-buffer-at-bottom)))
 
   (add-to-list 'display-buffer-alist '("\\*warnings\\*" (display-buffer-at-bottom)))
@@ -76,6 +81,9 @@
 	  (top . 0)
 	  (left . 0)))
   (setq initial-frame-alist default-frame-alist)
+
+  ;; Auto-select help windows
+  (setq help-window-select t)
 
   ;; Colors and faces
   (setq whitespace-display-mappings '((trailing 32 [?·])))
@@ -119,10 +127,7 @@
   (setq backup-directory-alist '(("." . "~/.emacs.d/backups/")))
   (make-directory "~/.emacs.d/backups" :parents)
   (setq temporary-file-directory "~/.emacs.d/tmp/")
-  (make-directory "~/.emacs.d/tmp" :parents)
-
-  :custom
-  (tab-always-indent 'complete))
+  (make-directory "~/.emacs.d/tmp" :parents))
 
 ;; Load feature/mode/package-specific config scripts
 (require 'init-theme)
@@ -138,6 +143,7 @@
 (require 'init-centaur)
 (require 'init-projectile)
 (require 'init-docker)
+(require 'init-terminal)
 (require 'init-evil)
 (require 'init-lsp)
 (require 'init-dap)

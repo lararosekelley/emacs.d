@@ -5,7 +5,6 @@
 ;;;   Further reading:
 ;;;     - https://github.com/rainstormstudio/nerd-icons.el
 ;;;     - https://github.com/rainstormstudio/nerd-icons-dired
-;;;     - https://github.com/rougier/svg-tag-mode
 ;;;   Last modified: January 11th, 2025
 ;;; ---------------------------------------------------------------
 ;;; Code:
@@ -27,12 +26,6 @@
   :straight t
   :hook
   (dired-mode . nerd-icons-dired-mode))
-
-;; SVG tag mode
-(use-package svg-tag-mode
-  :straight t
-  :hook
-  (org-mode . svg-tag-mode))
 
 (provide 'init-fonts)
 ;;; init-fonts.el ends here

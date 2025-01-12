@@ -7,7 +7,7 @@
 ;;;     - https://github.com/alphapapa/magit-todos
 ;;;     - https://github.com/sshaw/git-link
 ;;;     - https://github.com/Artawower/blamer.el
-;;;   Last modified: January 8th, 2025
+;;;   Last modified: January 12th, 2025
 ;;; ----------------------------------------------
 ;;; Code:
 

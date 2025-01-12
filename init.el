@@ -15,7 +15,6 @@
 ;;;     TODO: Treemacs + Projectile - when opening an obvious project folder, add to projects dashboard and treemacs
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Opinionated org mode / roam setup
-;;;     TODO: Refresh VC state in mode line faster
 ;;;     TODO: Evil trampling over pgmacs bindings?
 ;;;     TODO: affe-find not working with consult-file-preview unless I run after load
 ;;;     TODO: Emacs tab behavior too rigid?

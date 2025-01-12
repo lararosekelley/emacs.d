@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://evil.readthedocs.io/en/latest/overview.html
-;;;   Last modified: January 11th, 2025
+;;;   Last modified: January 12th, 2025
 ;;; -------------------------------------------
 ;;; Code:
 

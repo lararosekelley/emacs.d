@@ -19,6 +19,8 @@
 ;; Git support
 (use-package magit
   :straight t
+  :init
+  (setq auto-revert-check-vc-info t) ;; Auto-refresh VCS info in modeline
   :config
   (setq magit-define-global-key-bindings 'recommended))
 (use-package magit-todos

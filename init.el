@@ -154,6 +154,7 @@
 (require 'init-copilot)
 
 ;; Language-specific packages
+(require 'init-go)
 (require 'init-python)
 
 ;; Keybindings goes last

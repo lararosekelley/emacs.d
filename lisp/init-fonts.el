@@ -5,7 +5,8 @@
 ;;;   Further reading:
 ;;;     - https://github.com/rainstormstudio/nerd-icons.el
 ;;;     - https://github.com/rainstormstudio/nerd-icons-dired
-;;;   Last modified: January 11th, 2025
+;;;     - https://github.com/iqbalansari/emacs-emojify
+;;;   Last modified: February 5th, 2025
 ;;; ---------------------------------------------------------------
 ;;; Code:
 
@@ -26,6 +27,11 @@
   :straight t
   :hook
   (dired-mode . nerd-icons-dired-mode))
+
+;; Emojis
+(use-package emojify
+  :straight t
+  :hook (after-init . global-emojify-mode))
 
 (provide 'init-fonts)
 ;;; init-fonts.el ends here

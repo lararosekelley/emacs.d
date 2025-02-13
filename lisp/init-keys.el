@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://evil.readthedocs.io/en/latest/overview.html
-;;;   Last modified: January 12th, 2025
+;;;   Last modified: February 13th, 2025
 ;;; -------------------------------------------
 ;;; Code:
 
@@ -41,6 +41,9 @@
 
   ;; Bookmarks (reserve <leader>b)
   (evil-define-key 'normal 'global (kbd "<leader>b") 'bookmark-set)
+
+  ;; DevDocs (reserve <leader>K)
+  (evil-define-key 'normal 'global (kbd "<leader>K") 'devdocs-lookup)
 
   ;; Markdown (reserve <leader>m)
   (evil-define-key 'normal 'global (kbd "<leader>mi") 'markdown-insert-image)

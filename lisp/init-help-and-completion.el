@@ -11,7 +11,8 @@
 ;;;     - https://github.com/justbur/emacs-which-key
 ;;;     - https://github.com/minad/marginalia
 ;;;     - https://github.com/minad/affe
-;;;   Last modified: January 11th, 2025
+;;;     - https://github.com/astoff/devdocs.el
+;;;   Last modified: February 13th, 2025
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
@@ -59,6 +60,10 @@
 	orderless-matching-styles '(orderless-flex orderless-regexp)
 	completion-category-overrides '((file (styles flex partial-completion)))
 	completion-category-defaults nil))
+
+;; DevDocs.io integration
+(use-package devdocs
+  :straight t)
 
 ;; Better consult-find (using fzf)
 (use-package affe

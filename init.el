@@ -6,7 +6,7 @@
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
 ;;;     - https://github.com/emacs-evil/evil
-;;;   Last modified: January 11th, 2025
+;;;   Last modified: February 13th, 2025
 ;;;   Tasks:
 ;;;     TODO: [BUG] LSP mode - cycle through peek references not working
 ;;;     TODO: Automate copilot-install-server step

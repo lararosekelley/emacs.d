@@ -37,6 +37,7 @@
 	 (typescript-ts-mode . lsp-deferred)
 	 (tsx-ts-mode . lsp-deferred)
 	 (python-mode . lsp-deferred)
+	 (go-ts-mode . lsp-deferred)
 	 (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 

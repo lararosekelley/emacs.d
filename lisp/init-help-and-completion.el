@@ -12,7 +12,8 @@
 ;;;     - https://github.com/minad/marginalia
 ;;;     - https://github.com/minad/affe
 ;;;     - https://github.com/astoff/devdocs.el
-;;;   Last modified: February 13th, 2025
+;;;     - https://github.com/emacsmirror/consult-recoll
+;;;   Last modified: February 17th, 2025
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
@@ -63,6 +64,10 @@
 
 ;; DevDocs.io integration
 (use-package devdocs
+  :straight t)
+
+;; Recoll integration
+(use-package consult-recoll
   :straight t)
 
 ;; Better consult-find (using fzf)

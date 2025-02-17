@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://evil.readthedocs.io/en/latest/overview.html
-;;;   Last modified: February 13th, 2025
+;;;   Last modified: February 17th, 2025
 ;;; -------------------------------------------
 ;;; Code:
 
@@ -108,6 +108,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader>fd") 'consult-flymake)
   (evil-define-key 'normal 'global (kbd "<leader>ft") 'consult-theme)
+  (evil-define-key 'normal 'global (kbd "<leader>fr") 'consult-recoll)
 
   ;; Projectile (reserve <leader>p)
   (evil-define-key 'normal 'global (kbd "C-p") 'projectile-command-map)

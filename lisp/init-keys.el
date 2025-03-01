@@ -152,6 +152,11 @@
   (evil-define-key 'normal 'global (kbd "<leader>de") 'dap-ui-expressions)
   (evil-define-key 'normal 'global (kbd "<leader>dt") 'dap-breakpoint-toggle)
 
+  ;; ollama (reserve <leader>o)
+  (evil-define-key 'normal 'global (kbd "<leader>ou") 'ellama-transient-main-menu) ;; "Ollama UI"
+  (evil-define-key 'normal 'global (kbd "<leader>oc") 'ellama-code-complete) ;; "Ollama complete"
+  (evil-define-key 'normal 'global (kbd "<leader>on") 'ellama-chat-send-last-message) ;; "Ollama next"
+
   ;; docker (reserve <leader>D)
   (evil-define-key 'normal 'global (kbd "<leader>D") 'docker)
 

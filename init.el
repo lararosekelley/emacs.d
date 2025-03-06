@@ -6,7 +6,7 @@
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
 ;;;     - https://github.com/emacs-evil/evil
-;;;   Last modified: February 13th, 2025
+;;;   Last modified: March 5th, 2025
 ;;;   Tasks:
 ;;;     TODO: [BUG] LSP mode - cycle through peek references not working
 ;;;     TODO: Automate copilot-install-server step
@@ -75,8 +75,8 @@
 
   ;; Set frame size
   (setq default-frame-alist
-	'((width . 214)
-	  (height . 67)
+	'((width . 160)
+	  (height . 52)
 	  (top . 0)
 	  (left . 0)))
   (setq initial-frame-alist default-frame-alist)

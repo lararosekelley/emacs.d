@@ -8,14 +8,23 @@
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
-;; Pretty theme.
+;; Catpuccin theme
+(use-package catppuccin-theme
+  :straight t
+  :init
+  (load-theme 'catppuccin t)
+  :config
+  (setq catppuccin-flavor 'mocha))
+
+;; Doom themes
 (use-package doom-themes
   :straight t
   :config
   (setq doom-themes-enable-bold t) ;; if nil, bold is universally disabled
   (setq doom-themes-enable-italic t) ;; if nil, italics is universally disabled
+
   ;; Load theme here
-  (load-theme 'doom-shades-of-purple t)
+  ;; (load-theme 'doom-fairy-floss t)
 
   ;; Enable flashing mode-line on errors.
   (doom-themes-visual-bell-config)

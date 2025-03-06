@@ -4,18 +4,14 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://emacs-lsp.github.io/lsp-mode/
-;;;   Last modified: December 22nd, 2024
+;;;   Last modified: March 5th, 2025
 ;;; -------------------------------------------
 ;;; Code:
 
-;; env vars (uncomment and set to your preference)
-;; (setenv "EMACS_WINDOW_HEIGHT" "TODO")
-;; (setenv "EMACS_WINDOW_WIDTH" "TODO")
-;; (setenv "EMACS_ORG_DIRECTORY" "TODO")
-
+;; don't change these unless you're sure of what you're doing
 (setenv "LSP_USE_PLISTS" "true") ;; per lsp-mode perf guide
-(setenv "EMACS_WINDOW_HEIGHT" "214")
-(setenv "EMACS_WINDOW_WIDTH" "67")
-(setenv "EMACS_ORG_DIRECTORY" "/run/media/tylucaskelley/Storage/Dropbox/Files/notes")
+
+;; other env vars (set to your preference)
+(setenv "EMACS_ORG_DIRECTORY" "/run/media/lara/Storage/Dropbox/Files/notes")
 
 ;;; early-init.el ends here

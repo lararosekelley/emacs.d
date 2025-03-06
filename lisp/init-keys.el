@@ -69,7 +69,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>es") 'async-shell-command)
   (evil-define-key 'normal 'global (kbd "<leader>ee") 'eval-expression)
   (evil-define-key 'normal 'global (kbd "<leader>ex") 'eval-last-sexp)
-  (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x vterm-other-window RET"))
+  (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x eat-other-window RET"))
 
   ;; Window navigation
   (evil-define-key 'normal 'global "J" 'evil-window-down)

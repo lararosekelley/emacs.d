@@ -15,7 +15,7 @@
 ### Before you launch Emacs
 
 1. Clone this repo into `~/.emacs.d`
-2. Update env vars or add more in `lisp/init-env.el`
+2. Update env vars or add more in `early-init.el`
 
 ### First launch
 

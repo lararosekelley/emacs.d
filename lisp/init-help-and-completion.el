@@ -13,7 +13,7 @@
 ;;;     - https://github.com/minad/affe
 ;;;     - https://github.com/astoff/devdocs.el
 ;;;     - https://github.com/emacsmirror/consult-recoll
-;;;   Last modified: February 17th, 2025
+;;;   Last modified: March 5th, 2025
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
@@ -24,7 +24,14 @@
 ;; VERTical Interactive COmpletion.
 (use-package vertico
   :straight t
-  :init (vertico-mode))
+  :init
+  (setq completion-cycle-threshold t)
+  (setq vertico-cycle t)
+  (setq read-file-name-completion-ignore-case t)
+  (setq read-buffer-completion-ignore-case t)
+  (setq completion-ignore-case t)
+  :config
+  (vertico-mode))
 
 ;; Shell command completion (Bash)
 (use-package bash-completion

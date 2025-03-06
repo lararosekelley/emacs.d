@@ -57,7 +57,10 @@
   ;; Tabs and whitespace
   (setq whitespace-line-column 120)
   (setq whitespace-style '(face tabs trailing lines-tail))
-  (setq tab-always-indent 'complete)
+  (setq-default indent-tabs-mode nil)
+  (setq tab-width 2) ;; evil equivalent in init-evil.el
+  (setq-default tabstop nil)
+  (setq tab-always-indent t) ;; always indent
 
   ;; Errors, warnings and messages - show at bottom rather than side
   (setq debug-on-error t)
@@ -86,7 +89,6 @@
 
   ;; Colors and faces
   (setq whitespace-display-mappings '((trailing 32 [?·])))
-  (set-face-attribute 'trailing-whitespace nil :background "gray30")
 
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.

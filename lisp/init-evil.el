@@ -3,6 +3,7 @@
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
+;;;     - https://github.com/noctuid/evil-guide
 ;;;     - https://evil.readthedocs.io/en/latest/overview.html
 ;;;     - https://github.com/emacs-evil/evil-collection
 ;;;     - https://github.com/gregsexton/origami.el
@@ -22,6 +23,7 @@
   (setq evil-cross-lines t)
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
+  (setq evil-shift-width 2)
 
   ;; Enable evil mode
   (evil-mode 1)

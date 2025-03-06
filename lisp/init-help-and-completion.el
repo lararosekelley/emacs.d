@@ -45,6 +45,7 @@
   :straight t
   :init
   (setq consult-project-root-function #'projectile-project-root)
+  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator /   --smart-case --no-heading --with-filename --line-number --search-zip --hidden")
   ;; Preview in find-file
   (defun consult-find-file-with-preview (prompt &optional dir default mustmatch initial pred)
     (interactive)
@@ -82,7 +83,7 @@
   :after '(consult orderless)
   :straight t
   :config
-  (consult-customize affe-find :state (consult--file-preview))) ;; Automatic preview
+  (consult-customize consult-find affe-find :state (consult--file-preview))) ;; Automatic preview
 
 ;; COmpletion in Region FUnction
 (use-package corfu

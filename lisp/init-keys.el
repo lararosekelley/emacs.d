@@ -99,13 +99,14 @@
 
   ;; Consult (reserve <leader>f) - f for "find"
   (evil-define-key 'normal 'global (kbd "<leader>fb") 'consult-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>fy") 'consult-yank-pop)
   (evil-define-key 'normal 'global (kbd "<leader>fl") 'consult-line)
   (evil-define-key 'normal 'global (kbd "<leader>fp") 'projectile-switch-project)
-  (evil-define-key 'normal 'global (kbd "<leader>ff") 'affe-find)
+  (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-fd) ;; requires fd to be installed
   (evil-define-key 'normal 'global (kbd "<leader>fm") 'consult-man)
   (evil-define-key 'normal 'global (kbd "<leader>fo") 'consult-org-agenda)
   (evil-define-key 'normal 'global (kbd "<leader>fi") 'consult-info)
-  (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep)
+  (evil-define-key 'normal 'global (kbd "<leader>fg") 'consult-ripgrep) ;; requires ripgrep to be installed
   (evil-define-key 'normal 'global (kbd "<leader>fd") 'consult-flymake)
   (evil-define-key 'normal 'global (kbd "<leader>ft") 'consult-theme)
   (evil-define-key 'normal 'global (kbd "<leader>fr") 'consult-recoll)

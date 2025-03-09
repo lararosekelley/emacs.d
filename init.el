@@ -16,9 +16,7 @@
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Opinionated org mode / roam setup
 ;;;     TODO: Evil trampling over pgmacs bindings?
-;;;     TODO: affe-find not working with consult-file-preview unless I run after load
-;;;     TODO: Emacs tab behavior too rigid?
-;;;     TODO: Ignore delimiters in fuzzy file search (orderless-flex behavior)
+;;;     TODO: Ignore delimiters in consult-fd file search (orderless-flex behavior / fzf)
 ;;;     TODO: Bash completion sometimes hangs
 ;;;     TODO: Allow for deciding how to open file from consult (e.g., in new tab, split,h etc.)
 ;;; ---------------------------------------------------------
@@ -50,9 +48,10 @@
   (global-whitespace-mode 1)
   (global-display-line-numbers-mode 1)
 
-  ;; Performance tuning
+  ;; Performance tuning and garbage collection
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
-  (setq gc-cons-threshold 200000000)
+  (setq gc-cons-threshold (eval-when-compile (* 1024 1024 1024))) ;; 1gb
+  (run-with-idle-timer 2 t (lambda () (garbage-collect)))
 
   ;; Tabs and whitespace
   (setq whitespace-line-column 120)
@@ -63,7 +62,7 @@
   (setq tab-always-indent t) ;; always indent
 
   ;; Errors, warnings and messages - show at bottom rather than side
-  (setq debug-on-error t)
+  ;; (setq debug-on-error t) ;; enable to pop open debugger when needed
   (add-to-list 'display-buffer-alist '("\\*messages\\*" (display-buffer-at-bottom)))
 
   (add-to-list 'display-buffer-alist '("\\*warnings\\*" (display-buffer-at-bottom)))

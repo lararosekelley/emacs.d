@@ -10,7 +10,6 @@
 ;;;     - https://github.com/minad/corfu
 ;;;     - https://github.com/justbur/emacs-which-key
 ;;;     - https://github.com/minad/marginalia
-;;;     - https://github.com/minad/affe
 ;;;     - https://github.com/astoff/devdocs.el
 ;;;     - https://github.com/emacsmirror/consult-recoll
 ;;;   Last modified: March 5th, 2025
@@ -25,8 +24,6 @@
 (use-package vertico
   :straight t
   :init
-  (setq completion-cycle-threshold t)
-  (setq vertico-cycle t)
   (setq read-file-name-completion-ignore-case t)
   (setq read-buffer-completion-ignore-case t)
   (setq completion-ignore-case t)
@@ -45,7 +42,6 @@
   :straight t
   :init
   (setq consult-project-root-function #'projectile-project-root)
-  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator /   --smart-case --no-heading --with-filename --line-number --search-zip --hidden")
   ;; Preview in find-file
   (defun consult-find-file-with-preview (prompt &optional dir default mustmatch initial pred)
     (interactive)
@@ -59,16 +55,18 @@
 		     :predicate pred)))
   (setq read-file-name-function #'consult-find-file-with-preview)
   :config
+  (setq consult-ripgrep-args (concat consult-ripgrep-args " --hidden"))
+  (setq consult-fd-args (append consult-fd-args '("--hidden")))
   (consult-customize consult-find consult-fd :state (consult--file-preview))) ;; Automatic preview
 
 ;; Completion style that matches multiple regexps in any order
 (use-package orderless
   :straight t
   :init
-  (setq completion-styles '(orderless)
+  (setq completion-styles '(orderless basic)
 	orderless-matching-styles '(orderless-flex orderless-regexp)
-	completion-category-overrides '((file (styles flex partial-completion)))
-	completion-category-defaults nil))
+        completion-category-defaults nil
+	completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; DevDocs.io integration
 (use-package devdocs
@@ -77,13 +75,6 @@
 ;; Recoll integration
 (use-package consult-recoll
   :straight t)
-
-;; Better consult-find (using fzf)
-(use-package affe
-  :after '(consult orderless)
-  :straight t
-  :config
-  (consult-customize consult-find affe-find :state (consult--file-preview))) ;; Automatic preview
 
 ;; COmpletion in Region FUnction
 (use-package corfu

@@ -46,13 +46,13 @@
   (defun consult-find-file-with-preview (prompt &optional dir default mustmatch initial pred)
     (interactive)
     (let ((default-directory (or dir default-directory))
-	  (minibuffer-completing-file-name t))
+    (minibuffer-completing-file-name t))
       (consult--read #'read-file-name-internal
-		     :state (consult--file-preview)
-		     :prompt prompt
-		     :initial initial
-		     :require-match mustmatch
-		     :predicate pred)))
+        :state (consult--file-preview)
+        :prompt prompt
+        :initial initial
+        :require-match mustmatch
+        :predicate pred)))
   (setq read-file-name-function #'consult-find-file-with-preview)
   :config
   (setq consult-ripgrep-args (concat consult-ripgrep-args " --hidden"))
@@ -64,9 +64,9 @@
   :straight t
   :init
   (setq completion-styles '(orderless basic)
-	orderless-matching-styles '(orderless-flex orderless-regexp)
-        completion-category-defaults nil
-	completion-category-overrides '((file (styles basic partial-completion)))))
+    orderless-matching-styles '(orderless-flex orderless-regexp)
+    completion-category-defaults nil
+    completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; DevDocs.io integration
 (use-package devdocs
@@ -158,9 +158,7 @@ targets."
                    (not (string-suffix-p "-argument" (cdr binding))))))))
 
 (setq embark-indicators
-      '(embark-which-key-indicator
-	embark-highlight-indicator
-	embark-isearch-highlight-indicator))
+  '(embark-which-key-indicator embark-highlight-indicator embark-isearch-highlight-indicator))
 
 (defun embark-hide-which-key-indicator (fn &rest args)
   "Hide the which-key indicator immediately when using the `completing-read' prompter."

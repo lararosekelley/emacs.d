@@ -30,12 +30,12 @@
     "Show current command and its key binding in the mode line (modified for doom-modeline use)."
     :global t
     (if keycast-mode
-	(progn
-	  (add-hook 'pre-command-hook 'keycast--update t)
-	  (add-to-list 'global-mode-string '("" keycast-mode-line)))
       (progn
-	(remove-hook 'pre-command-hook 'keycast--update)
-	(setq global-mode-string (remove '("" keycast-mode-line) global-mode-string))))))
+        (add-hook 'pre-command-hook 'keycast--update t)
+        (add-to-list 'global-mode-string '("" keycast-mode-line)))
+      (progn
+        (remove-hook 'pre-command-hook 'keycast--update)
+        (setq global-mode-string (remove '("" keycast-mode-line) global-mode-string))))))
 
 (provide 'init-modeline)
 ;;; init-modeline.el ends here

@@ -17,7 +17,7 @@
       MAX-WIDTH is the maximum width of the image.
       TABLE is the table that the image is in."
     (let* ((img (create-image value nil t))
-	   (txt (propertize " " 'display img 'rear-nonsticky t)))
+      (txt (propertize " " 'display img 'rear-nonsticky t)))
       (or txt "<invalid img>")))
   (pgmacs-register-column-displayer "inlineimg" "image" #'custom/inline-image-displayer))
 

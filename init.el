@@ -6,19 +6,20 @@
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
 ;;;     - https://github.com/emacs-evil/evil
-;;;   Last modified: March 5th, 2025
+;;;   Last modified: March 30th, 2025
 ;;;   Tasks:
 ;;;     TODO: [BUG] LSP mode - cycle through peek references not working
 ;;;     TODO: Automate copilot-install-server step
 ;;;     TODO: Automate treesit-auto-install-all step
 ;;;     TODO: Automate nerd-icons-install-fonts step
-;;;     TODO: Treemacs + Projectile - when opening an obvious project folder, add to projects dashboard and treemacs
+;;;     TODO: When opening an obvious project folder, add to projects dashboard and treemacs
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Opinionated org mode / roam setup
 ;;;     TODO: Evil trampling over pgmacs bindings?
 ;;;     TODO: Ignore delimiters in consult-fd file search (orderless-flex behavior / fzf)
 ;;;     TODO: Bash completion sometimes hangs
 ;;;     TODO: Allow for deciding how to open file from consult (e.g., in new tab, split,h etc.)
+;;;     TODO: Evil commands like ':e <file>' should start at project root, not current directory
 ;;; ---------------------------------------------------------
 ;;; Code:
 
@@ -77,10 +78,10 @@
 
   ;; Set frame size
   (setq default-frame-alist
-	'((width . 160)
-	  (height . 52)
-	  (top . 0)
-	  (left . 0)))
+  '((width . 160)
+    (height . 52)
+    (top . 0)
+    (left . 0)))
   (setq initial-frame-alist default-frame-alist)
 
   ;; Auto-select help windows
@@ -93,22 +94,22 @@
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
   (defun crm-indicator (args)
     (cons (format "[CRM%s] %s"
-		  (replace-regexp-in-string
-		   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
-		   crm-separator)
-		  (car args))
-	  (cdr args)))
+      (replace-regexp-in-string
+       "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+       crm-separator)
+      (car args))
+    (cdr args)))
   (advice-add 'completing-read-multiple :filter-args 'crm-indicator)
 
   ;; Do not allow the cursor in the minibuffer prompt
   (setq minibuffer-prompt-properties
-	'(read-only t cursor-intangible t face minibuffer-prompt))
+  '(read-only t cursor-intangible t face minibuffer-prompt))
   (add-hook 'minibuffer-setup-hook 'cursor-intangible-mode)
 
   ;; Emacs 28: Hide commands in M-x which do not work in the current mode.
   ;; Vertico commands are hidden in normal buffers.
   (setq read-extended-command-predicate
-	'command-completion-default-include-p)
+  'command-completion-default-include-p)
 
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t)

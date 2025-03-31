@@ -4,7 +4,7 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://emacs-lsp.github.io/lsp-mode/
-;;;   Last modified: November 18th, 2024
+;;;   Last modified: March 30th, 2025
 ;;; -------------------------------------------
 ;;; Code:
 
@@ -33,12 +33,13 @@
   (setq lsp-keymap-prefix "C-l") ;; Prefix
   (setq lsp-disabled-clients '())
   :hook (
-	 (js-ts-mode . lsp-deferred)
-	 (typescript-ts-mode . lsp-deferred)
-	 (tsx-ts-mode . lsp-deferred)
-	 (python-mode . lsp-deferred)
-	 (go-ts-mode . lsp-deferred)
-	 (lsp-mode . lsp-enable-which-key-integration))
+    (js-ts-mode . lsp-deferred)
+    (typescript-ts-mode . lsp-deferred)
+    (tsx-ts-mode . lsp-deferred)
+    (python-mode . lsp-deferred)
+    (go-ts-mode . lsp-deferred)
+    (markdown-mode . lsp-deferred)
+    (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 
 ;; formatting code (prettier, etc.)

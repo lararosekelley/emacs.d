@@ -4,9 +4,34 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://github.com/ema2159/centaur-tabs
-;;;   Last modified: November 25th, 2024
+;;;   Last modified: April 2nd, 2025
 ;;; ---------------------------------------------------------
 ;;; Code:
+
+(defun custom/centaur-tabs-hide-tab (x)
+  "Do not show buffer X in tabs."
+  (let ((name (format "%s" x)))
+    (or
+     ;; Current window is not dedicated window.
+     (window-dedicated-p (selected-window))
+
+     ;; Buffer blacklist
+     (string-prefix-p "*epc" name)
+     (string-prefix-p "*dashboard" name)
+     (string-prefix-p "*helm" name)
+     (string-prefix-p "*Helm" name)
+     (string-prefix-p "*Compile-Log*" name)
+     (string-prefix-p "*lsp" name)
+     (string-prefix-p "*company" name)
+     (string-prefix-p "*Flycheck" name)
+     (string-prefix-p "*tramp" name)
+     (string-prefix-p " *Mini" name)
+     (string-prefix-p "*help" name)
+     (string-prefix-p "*straight" name)
+     (string-prefix-p " *temp" name)
+     (string-prefix-p "*Help" name)
+     (string-prefix-p "*mybuf" name)
+     (string-prefix-p "magit" name))))
 
 (use-package centaur-tabs
   :straight t
@@ -23,7 +48,8 @@
   (setq centaur-tabs-enable-key-bindings t) ;; C-c t bindings
   (centaur-tabs-mode t)
   :config
-  (centaur-tabs-group-by-projectile-project))
+  (centaur-tabs-group-by-projectile-project)
+  (setq centaur-tabs-hide-tab-function 'custom/centaur-tabs-hide-tab))
 
 (provide 'init-centaur)
 ;;; init-centaur.el ends here

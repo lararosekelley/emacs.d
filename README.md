@@ -7,8 +7,11 @@
 ## Dependencies
 
 - Emacs 29.4+
+- `libvterm` and `libtool` for `vterm`
+- `aider`, and `qwen2.5:32b` (installed via `ollama`) for an LLM assistant
+  - Ollama needs to be running to use Aider within Emacs
 - `multimarkdown` for Markdown preview/compilation
-   - Can be installed from most system package managers
+  - Can be installed from most system package managers
 
 ## Setup
 

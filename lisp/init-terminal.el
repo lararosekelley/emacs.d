@@ -2,19 +2,13 @@
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
-;;;	- https://elpa.nongnu.org/nongnu/eat.html
+;;;     - https://github.com/akermu/emacs-libvterm
 ;;; --------------------------------------------
 ;;; Code:
 
-(use-package eat
-  :straight (
-	     :host codeberg
-	     :repo "akib/emacs-eat"
-	     :files ("*.el" ("term" "term/*.el") "*.texi"
-		     "*.ti" ("terminfo/e" "terminfo/e/*")
-		     ("terminfo/65" "terminfo/65/*")
-		     ("integration" "integration/*")
-		     (:exclude ".dir-locals.el" "*-tests.el"))))
+;; note - you can install `libvterm` via OS package manager
+(use-package vterm
+  :straight t)
 
 (provide 'init-terminal)
 ;;; init-terminal.el ends here

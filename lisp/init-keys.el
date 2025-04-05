@@ -60,6 +60,9 @@
   (evil-define-key 'normal 'global (kbd "<leader>ln") 'lsp-ui-peek-jump-forward) ;; Next reference in Peek mode
   (evil-define-key 'normal 'global (kbd "<leader>lp") 'lsp-ui-peek-jump-backward) ;; Previous reference in Peek mode
 
+  ;; Aider (reserve <leader>c) - c for "copilot"
+  (evil-define-key 'normal 'global (kbd "<leader>cu") 'aidermacs-transient-menu) ;; Aider menu (u for UI)
+
   ;; Copilot
   (evil-define-key 'insert 'global (kbd "S-<return>") 'copilot-accept-completion)
   (evil-define-key 'insert 'global (kbd "S-<down>") 'copilot-next-completion)
@@ -69,7 +72,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>es") 'async-shell-command)
   (evil-define-key 'normal 'global (kbd "<leader>ee") 'eval-expression)
   (evil-define-key 'normal 'global (kbd "<leader>ex") 'eval-last-sexp)
-  (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x eat-other-window RET"))
+  (evil-define-key 'normal 'global (kbd "<leader>et") (kbd "M-x vterm-other-window RET"))
 
   ;; Window navigation
   (evil-define-key 'normal 'global "J" 'evil-window-down)
@@ -152,11 +155,6 @@
   (evil-define-key 'normal 'global (kbd "<leader>db") 'dap-ui-breakpoints)
   (evil-define-key 'normal 'global (kbd "<leader>de") 'dap-ui-expressions)
   (evil-define-key 'normal 'global (kbd "<leader>dt") 'dap-breakpoint-toggle)
-
-  ;; ollama (reserve <leader>o)
-  (evil-define-key 'normal 'global (kbd "<leader>ou") 'ellama-transient-main-menu) ;; "Ollama UI"
-  (evil-define-key 'normal 'global (kbd "<leader>oc") 'ellama-code-complete) ;; "Ollama complete"
-  (evil-define-key 'normal 'global (kbd "<leader>on") 'ellama-chat-send-last-message) ;; "Ollama next"
 
   ;; docker (reserve <leader>D)
   (evil-define-key 'normal 'global (kbd "<leader>D") 'docker)

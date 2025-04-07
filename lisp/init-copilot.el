@@ -18,7 +18,7 @@
   (setq aidermacs-use-architect-mode t)
   (setq aidermacs-auto-commits nil)
   (setq aidermacs-watch-files t)
-  (setq aidermacs-extra-args '("--no-stream", "--no-gitignore"))
+  (setq aidermacs-extra-args '("--no-stream" "--no-gitignore"))
   ;; my gpu is an amd radeon 7800 xt - tweak model to fit your capabilities
   ;; some free hosted options: "google/gemma-3-27b-it:free", "deepseek/deepseek-v3-base"
   (setq aidermacs-default-model "ollama_chat/qwen2.5-coder:7b"))

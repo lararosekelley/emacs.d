@@ -30,16 +30,19 @@
 (use-package lsp-mode
   :straight t
   :init
+  (setq lsp-idle-delay 1) ;; How often lsp-mode will refresh while typing (seconds)
   (setq lsp-keymap-prefix "C-l") ;; Prefix
   (setq lsp-disabled-clients '())
+  (setq lsp-clients-typescript-max-ts-server-memory 16384)
   :hook (
-    (js-ts-mode . lsp-deferred)
-    (typescript-ts-mode . lsp-deferred)
-    (tsx-ts-mode . lsp-deferred)
-    (python-mode . lsp-deferred)
-    (go-ts-mode . lsp-deferred)
-    (markdown-mode . lsp-deferred)
-    (lsp-mode . lsp-enable-which-key-integration))
+         (css-mode . lsp-deferred)
+         (js-ts-mode . lsp-deferred)
+         (typescript-ts-mode . lsp-deferred)
+         (tsx-ts-mode . lsp-deferred)
+         (python-mode . lsp-deferred)
+         (go-ts-mode . lsp-deferred)
+         (markdown-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 
 ;; formatting code (prettier, etc.)

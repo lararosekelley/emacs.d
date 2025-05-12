@@ -3,6 +3,8 @@
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://github.com/akermu/emacs-libvterm
+;;;     - https://sr.ht/~niklaseklund/detached.el
+;;;   Last modified: May 11th, 2025
 ;;; --------------------------------------------
 ;;; Code:
 

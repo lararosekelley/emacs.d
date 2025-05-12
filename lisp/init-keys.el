@@ -105,6 +105,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>fy") 'consult-yank-pop)
   (evil-define-key 'normal 'global (kbd "<leader>fl") 'consult-line)
   (evil-define-key 'normal 'global (kbd "<leader>fp") 'projectile-switch-project)
+  (evil-define-key 'normal 'global (kbd "<leader>fd") 'detached-consult-session)
   (evil-define-key 'normal 'global (kbd "<leader>ff") 'consult-fd) ;; requires fd to be installed
   (evil-define-key 'normal 'global (kbd "<leader>fm") 'consult-man)
   (evil-define-key 'normal 'global (kbd "<leader>fo") 'consult-org-agenda)

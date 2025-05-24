@@ -1,12 +1,17 @@
-;;; init.el --- Lara's Vim-inspired Emacs configuration
+;; Package-Requires: ((emacs "30.1"))
+
+;;; init.el --- My IDE-like Emacs configuration for (former) Vim users
 ;;;
 ;;; Commentary:
-;;;   Author: @lararosekelley
+;;;   Version: 0.9.0
+;;;   Author: Lara Kelley <@lararosekelley>
+;;;   URL: https://github.com/lararosekelley/emacs.d
 ;;;   Further reading:
-;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
 ;;;     - https://github.com/emacs-evil/evil
-;;;   Last modified: May 23rd, 2025
+;;;   Last modified: May 24th, 2025
+;;;   Keywords: emacs, lisp, elisp, vim, neovim, config
+;;;
 ;;;   Tasks:
 ;;;     TODO: Automate copilot-install-server step
 ;;;     TODO: When opening an obvious project folder, add to projects dashboard and treemacs
@@ -151,7 +156,7 @@
 (require 'init-treesitter)
 (require 'init-db)
 (require 'init-files-and-directories)
-(require 'init-copilot)
+(require 'init-ai)
 
 ;; Language-specific packages
 (require 'init-go)

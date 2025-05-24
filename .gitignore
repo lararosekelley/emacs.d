@@ -31,3 +31,5 @@ tramp
 org-roam.db
 nov-places
 .aider.*
+.eask/
+.elsa/

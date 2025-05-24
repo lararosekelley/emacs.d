@@ -1,11 +1,12 @@
-;;; init-copilot --- GitHub Copilot config (and other LLM-powered tools)
+;;; init-ai --- GitHub Copilot config (and other LLM-powered tools)
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
 ;;;     - https://github.com/copilot-emacs/copilot.el
 ;;;     - https://github.com/MatthewZMD/aidermacs
-;;;   Last modified: May 23rd, 2025
+;;;     - https://aider.chat/docs/faq.html
+;;;   Last modified: May 24rd, 2025
 ;;; -----------------------------------------------
 ;;; Code:
 
@@ -16,6 +17,7 @@
   (setenv "OLLAMA_API_BASE" "http://localhost:11434")
   :config
   (setq aidermacs-backend 'vterm)
+  (setq aidermacs-vterm-use-theme-colors t)
   (setq aidermacs-use-architect-mode t)
   (setq aidermacs-auto-commits nil)
   (setq aidermacs-watch-files t)
@@ -33,5 +35,5 @@
   (add-to-list 'copilot-indentation-alist '(prog-mode 2))
   (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2)))
 
-(provide 'init-copilot)
-;;; init-copilot.el ends here
+(provide 'init-ai)
+;;; init-ai.el ends here

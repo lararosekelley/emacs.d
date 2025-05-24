@@ -11,8 +11,10 @@
 - `aider`, and the models of your choice (installed via `ollama`) for an LLM assistant
   - Hosted models also supported if you don't run locally
   - Ollama needs to be running to use Aider within Emacs
+  - `portaudio-devel` (sometimes under different name depending on distribution) for `aider` voice commmands
 - `multimarkdown` for Markdown preview/compilation
   - Can be installed from most system package managers
+- `nodejs` and `npm`, to install `@emacs-eask/cli` (Eask)
 
 ## Setup
 

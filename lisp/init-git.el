@@ -16,6 +16,12 @@
   :straight t
   :init (global-diff-hl-mode))
 
+;; ediff mode configuration
+(use-package ediff
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  (setq ediff-split-window-function 'split-window-horizontally))
+
 ;; Git support
 (use-package magit
   :straight t

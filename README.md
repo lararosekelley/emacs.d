@@ -6,9 +6,10 @@
 
 ## Dependencies
 
-- Emacs 29.4+
+- Emacs 30.1+
 - `libvterm` and `libtool` for `vterm`
-- `aider`, and `qwen2.5:32b` (installed via `ollama`) for an LLM assistant
+- `aider`, and the models of your choice (installed via `ollama`) for an LLM assistant
+  - Hosted models also supported if you don't run locally
   - Ollama needs to be running to use Aider within Emacs
 - `multimarkdown` for Markdown preview/compilation
   - Can be installed from most system package managers
@@ -126,4 +127,4 @@ config.
 
 ## Copyright
 
-Copyright (c) 2024 Lara Kelley. Use with credit.
+Copyright (c) 2025 Lara Kelley. Use with credit.

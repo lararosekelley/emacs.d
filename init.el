@@ -6,25 +6,23 @@
 ;;;     - https://github.com/lararosekelley/emacs.d
 ;;;     - https://www.gnu.org/software/emacs/manual
 ;;;     - https://github.com/emacs-evil/evil
-;;;   Last modified: March 30th, 2025
+;;;   Last modified: May 23rd, 2025
 ;;;   Tasks:
-;;;     TODO: [BUG] LSP mode - cycle through peek references not working
 ;;;     TODO: Automate copilot-install-server step
-;;;     TODO: Automate treesit-auto-install-all step
-;;;     TODO: Automate nerd-icons-install-fonts step
 ;;;     TODO: When opening an obvious project folder, add to projects dashboard and treemacs
 ;;;     TODO: Refine `evil-quit` behavior to be smart about window splits, tabs, centaur tabs, etc.
 ;;;     TODO: Opinionated org mode / roam setup
 ;;;     TODO: Evil trampling over pgmacs bindings?
 ;;;     TODO: Ignore delimiters in consult-fd file search (orderless-flex behavior / fzf)
 ;;;     TODO: Bash completion sometimes hangs
+;;;     TODO: lsp-mode still hangs in some projects
 ;;;     TODO: Allow for deciding how to open file from consult (e.g., in new tab, split,h etc.)
 ;;;     TODO: Evil commands like ':e <file>' should start at project root, not current directory
 ;;; ---------------------------------------------------------
 ;;; Code:
 
 ;; Define minimum Emacs version for compatibility
-(let ((min-version "29.4"))
+(let ((min-version "30.1"))
   (when (version< emacs-version min-version)
     (error "Emacs version is too old, minimum compatible version is v%s" min-version)))
 
@@ -131,6 +129,7 @@
   (make-directory "~/.emacs.d/tmp" :parents))
 
 ;; Load feature/mode/package-specific config scripts
+(require 'init-terminal) ;; Load first, as some env vars are loaded here
 (require 'init-theme)
 (require 'init-fonts)
 (require 'init-dashboard)
@@ -144,7 +143,6 @@
 (require 'init-centaur)
 (require 'init-projectile)
 (require 'init-docker)
-(require 'init-terminal)
 (require 'init-evil)
 (require 'init-lsp)
 (require 'init-dap)
@@ -159,7 +157,7 @@
 (require 'init-go)
 (require 'init-python)
 
-;; Keybindings goes last
+;; Keybindings go last
 (require 'init-keys)
 
 ;;; init.el ends here

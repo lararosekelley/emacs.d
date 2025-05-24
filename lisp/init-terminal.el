@@ -4,9 +4,19 @@
 ;;;   Further reading:
 ;;;     - https://github.com/akermu/emacs-libvterm
 ;;;     - https://sr.ht/~niklaseklund/detached.el
-;;;   Last modified: May 11th, 2025
+;;;     - https://github.com/purcell/exec-path-from-shell
+;;;   Last modified: May 23rd, 2025
 ;;; --------------------------------------------
 ;;; Code:
+
+;; load enviornment variables from shell
+(unless (memq system-type '(ms-dos windos-nt cygwin))
+  (use-package exec-path-from-shell
+    :straight t
+    :config
+    (dolist (var '("ANTHROPIC_API_KEY" "GEMINI_API_KEY" "OPENAI_API_KEY" "GITHUB_TOKEN" "EMACS_ORG_DIRECTORY"))
+      (add-to-list 'exec-path-from-shell-variables var))
+    (exec-path-from-shell-initialize)))
 
 ;; note - you can install `libvterm` via OS package manager
 (use-package vterm

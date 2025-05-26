@@ -32,6 +32,13 @@
 5. As you navigate to `lsp-mode`-enabled files, you should get prompted (only once) to install
    a language server
 
+### Window position
+
+Under some desktops / window management systems, the `initial-frame-alist` settings may get
+ignored, especially for postion (`top` and `left`). Under KDE Plasma 6, I did this, for example:
+
+![window settings](./assets/window-settings.png)
+
 ## Keybindings
 
 Note that I was a longtime Vim/Neovim user (10 years!), and the keybindings

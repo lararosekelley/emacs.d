@@ -83,8 +83,8 @@
   (setq default-frame-alist
         '((width . 160)
           (height . 52)
-          (top . 0)
-          (left . 0)))
+          (top . 56)
+          (left . 24)))
   (setq initial-frame-alist default-frame-alist)
 
   ;; Auto-select help windows

@@ -15,6 +15,7 @@
 - `multimarkdown` for Markdown preview/compilation
   - Can be installed from most system package managers
 - `nodejs` and `npm`, to install `@emacs-eask/cli` (Eask)
+- `rust`, `cargo`, and `emacs-lsp-booster` for `lsp-mode` performance improvements: `cargo install emacs-lsp-booster`
 
 ## Setup
 

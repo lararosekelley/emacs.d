@@ -76,6 +76,11 @@
 (use-package consult-recoll
   :straight t)
 
+;; lsp-mode integration
+(use-package consult-lsp
+  :straight t
+  :after consult)
+
 ;; COmpletion in Region FUnction
 (use-package corfu
   :straight t

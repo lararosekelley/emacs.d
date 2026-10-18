@@ -1,0 +1,4 @@
+# Check only the Emacs Lisp files staged for this commit. The full suite is `just check`.
+files=$(git diff --cached --name-only --diff-filter=ACM -- '*.el')
+[ -z "$files" ] && exit 0
+echo "$files" | xargs emacs -Q --batch -l scripts/checkdoc.el

@@ -1,4 +1,4 @@
-;;; init-go.el ---
+;;; init-go.el --- Go language support
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley

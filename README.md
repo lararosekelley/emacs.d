@@ -11,10 +11,11 @@
 - `aider`, and the models of your choice (installed via `ollama`) for an LLM assistant
   - Hosted models also supported if you don't run locally
   - Ollama needs to be running to use Aider within Emacs
-  - `portaudio-devel` (sometimes under different name depending on distribution) for `aider` voice commmands
+  - `portaudio-devel` (sometimes under different name depending on distribution) for `aider` voice commands
 - `multimarkdown` for Markdown preview/compilation
   - Can be installed from most system package managers
-- `nodejs` and `npm`, to install `@emacs-eask/cli` (Eask)
+- `nodejs` and `npm`, to install `@emacs-eask/cli` (Eask) and the dev tooling
+- [just](https://github.com/casey/just) and [vale](https://vale.sh), for the development tasks below
 - `rust`, `cargo`, and `emacs-lsp-booster` for `lsp-mode` performance improvements: `cargo install emacs-lsp-booster`
 
 ## Setup
@@ -36,7 +37,7 @@
 ### Window position
 
 Under some desktops / window management systems, the `initial-frame-alist` settings may get
-ignored, especially for postion (`top` and `left`). Under KDE Plasma 6, I did this, for example:
+ignored, especially for position (`top` and `left`). Under KDE Plasma 6, I did this, for example:
 
 ![window settings](./assets/window-settings.png)
 
@@ -52,7 +53,8 @@ all debugging (`dap-mode`) keybindings. `<leader>db` shows breakpoints, for inst
 
 ## Theme
 
-Default theme is `gruvbox`, provided by `doom-themes`. Edit `init-theme.el` to change this.
+The theme is Callie, from [greylocklabs/themes](https://github.com/greylocklabs/themes), the same one my
+Neovim config uses. Run `theme-choose-variant` to switch to Callie Light. Edit `init-theme.el` to change this.
 
 ## Completion and help
 
@@ -117,23 +119,55 @@ If you don't want to use Evil or all of the `<leader>`-based mappings, you can r
 that stuff out, but at that point you may want to consider a less Vim-centric Emacs
 config.
 
+## Development
+
+Tasks run through [just](https://github.com/casey/just). Install the Node dev dependencies,
+which also sets up the git hooks, once:
+
+```bash
+just install
+```
+
+### Testing
+
+ERT tests live in [test/](./test) and run in a bare `emacs -Q`, so they cover what loads without
+packages: helpers in [lisp/init-utils.el](./lisp/init-utils.el) and checks that every module
+provides its feature and is required from [init.el](./init.el).
+
+```bash
+just test                                # whole suite
+just test-file test/init-utils-test.el   # one file
+```
+
+### Linting
+
+```bash
+just lint    # checkdoc, markdownlint-cli2, vale
+just check   # lint, then test
+```
+
+A husky `pre-commit` hook runs checkdoc over the staged Emacs Lisp files, and `commit-msg` runs
+commitlint against [commitlint.config.cjs](./commitlint.config.cjs), which requires a conventional
+commit with a scope from its enum. The same checks run in CI
+([.github/workflows/ci.yml](./.github/workflows/ci.yml)) across Emacs 30.1 and snapshot.
+
 ## Screenshots
+
+### Start screen with emacs-dashboard
 
 ![start screen](./assets/dashboard.png)
 
-**Start screen with emacs-dashboard**
+### Flymake at-point diagnostics
 
 ![flymake](./assets/flymake.png)
 
-**Flymake at-point diagnostics**
+### Consult + ripgrep with previews
 
 ![ripgrep](./assets/ripgrep.png)
 
-**Consult + ripgrep with previews**
+### Peek references in lsp-mode
 
 ![peek references](./assets/lsp-peek.png)
-
-**Peek references in lsp-mode**
 
 ## Copyright
 

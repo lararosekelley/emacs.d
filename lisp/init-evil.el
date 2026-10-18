@@ -58,9 +58,9 @@
   :init
   (setq evil-goggles-pulse t)
   (custom-set-faces
-   '(evil-goggles-delete-face ((t (:inherit 'shadow))))
-   '(evil-goggles-paste-face ((t (:inherit 'shadow))))
-   '(evil-goggles-yank-face ((t (:inherit 'shadow)))))
+   '(evil-goggles-delete-face ((t (:inherit shadow))))
+   '(evil-goggles-paste-face ((t (:inherit shadow))))
+   '(evil-goggles-yank-face ((t (:inherit shadow)))))
   :config
   (evil-goggles-mode))
 

@@ -52,7 +52,8 @@ all debugging (`dap-mode`) keybindings. `<leader>db` shows breakpoints, for inst
 
 ## Theme
 
-Default theme is `gruvbox`, provided by `doom-themes`. Edit `init-theme.el` to change this.
+The theme is Callie, from [greylocklabs/themes](https://github.com/greylocklabs/themes), the same one my
+Neovim config uses. Run `theme-choose-variant` to switch to Callie Light. Edit `init-theme.el` to change this.
 
 ## Completion and help
 

@@ -73,10 +73,9 @@
   (blamer-author-formatter "✎ %s ")
   (blamer-max-lines 1)
   :custom-face
-  (blamer-face ((t :foreground "#7a88cf"
-                   :background nil
-                   :height 110
-                   :italic t)))
+  (blamer-face ((t :inherit font-lock-comment-face
+                   :background unspecified
+                   :height 110)))
   :config
   (global-blamer-mode))
 

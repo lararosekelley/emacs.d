@@ -1,36 +1,21 @@
-;;; init-theme.el --- Set up themes from Doom
+;;; init-theme.el --- Set up the Callie theme
 ;;;
 ;;; Commentary:
 ;;;   Author: @lararosekelley
 ;;;   Further reading:
-;;;     - https://github.com/doomemacs/themes
-;;;   Last modified: December 22nd, 2024
+;;;     - https://github.com/greylocklabs/themes
+;;;   Last modified: October 17th, 2026
 ;;; -----------------------------------------------------------------------
 ;;; Code:
 
-;; Catpuccin theme
-(use-package catppuccin-theme
-  :straight t
-  :init
-  (load-theme 'catppuccin t)
+;; Callie, from greylocklabs/themes, matching Neovim. Callie Light is loaded but not
+;; enabled so `theme-choose-variant' can switch to it.
+(use-package callie-theme
+  :straight (:host github :repo "greylocklabs/themes"
+             :local-repo "greylocklabs-themes" :files ("ports/emacs/*.el"))
   :config
-  (setq catppuccin-flavor 'mocha))
-
-;; Doom themes
-(use-package doom-themes
-  :straight t
-  :config
-  (setq doom-themes-enable-bold t) ;; if nil, bold is universally disabled
-  (setq doom-themes-enable-italic t) ;; if nil, italics is universally disabled
-
-  ;; Load theme here
-  ;; (load-theme 'doom-fairy-floss t)
-
-  ;; Enable flashing mode-line on errors.
-  (doom-themes-visual-bell-config)
-
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+  (load-theme 'callie-light t t)
+  (load-theme 'callie t))
 
 (provide 'init-theme)
 ;;; init-theme.el ends here

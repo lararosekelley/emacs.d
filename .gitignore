@@ -33,3 +33,4 @@ nov-places
 .aider.*
 .eask/
 .elsa/
+node_modules/

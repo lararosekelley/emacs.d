@@ -9,7 +9,7 @@
 
 (package-file "init.el")
 
-(script "test" "echo \"Error: no test specified\" && exit 1")
+(script "test" "just test")
 
 (source "gnu")
 

@@ -1,6 +1,6 @@
-;; Package-Requires: ((emacs "30.1"))
-
 ;;; init.el --- My IDE-like Emacs configuration for (former) Vim users
+;;
+;; Package-Requires: ((emacs "30.1"))
 ;;;
 ;;; Commentary:
 ;;;   Version: 0.9.0
